@@ -1,3 +1,6 @@
+# Images
+*.xcf
+
 # Logs
 logs
 *.log
