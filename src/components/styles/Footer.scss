@@ -1,0 +1,128 @@
+.footer {
+  background-color: var(--primary);
+  padding: 2rem 0;
+  &__intro {
+    text-align: center;
+    margin-bottom: 1rem;
+    &__logo {
+      fill: var(--secondary);
+      margin: 0;
+      height: 5rem;
+      width: auto;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 4px rgba(17, 17, 17, 0.5);
+      color: var(--white);
+      span {
+        color: var(--secondary);
+      }
+    }
+    @media screen and (min-width: 768px) {
+      text-align: left;
+      display: flex;
+      align-items: center;
+      &__logo,
+      h1 {
+        display: inline-block;
+        margin-right: 1rem;
+      }
+      &__logo {
+        height: 3rem;
+        margin-bottom: 0;
+      }
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+  &__info {
+    .col {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    h1 {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+    a,
+    p {
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 0;
+    }
+    a {
+      text-decoration: none;
+      transition: color 0.3s linear;
+      &:hover,
+      &:active {
+        color: var(--ternary);
+        text-decoration: none;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      margin-bottom: -1rem;
+      .col {
+        text-align: left;
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      a,
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  &__links {
+    &--first {
+      margin-bottom: 1rem;
+    }
+    .col {
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    h2 {
+      font-weight: 500;
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 -1px 0 0;
+    }
+    &__link {
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--white);
+      text-decoration: none;
+      line-height: 1;
+      transition: color 0.3s linear;
+      &:hover,
+      &:active {
+        color: var(--ternary);
+        text-decoration: none;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      &--first {
+        margin-bottom: 0;
+      }
+      .col {
+        text-align: left;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      &__link {
+        font-size: 1rem;
+        // margin-left: 1rem;
+      }
+    }
+  }
+}

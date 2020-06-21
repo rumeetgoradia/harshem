@@ -59,43 +59,6 @@ function OfficeCard({ office, officeImg }) {
             </div>
           </Col>
         </Row>
-        {/* <Row
-          className="mb-3 d-flex align-items-center"
-          style={{ flexDirection: "column" }}
-        >
-          <Col xs={12} className="text-center">
-            <p className="mb-2">
-              <FaPhoneAlt />
-              <span>{office.phone}</span>
-              <br />
-              <FaFax />
-              <span>{office.fax}</span>
-            </p>
-          </Col>
-          <Col xs={12} className="text-center">
-            <p className="mb-2">
-              <FaMapMarkerAlt />
-              <span>{office.addressLine1}</span>
-              <br />
-              <span className="second-line">{office.addressLine2}</span>
-            </p>
-          </Col>
-        </Row>
-        <div className="office-card__content__hours">
-          <h3 className="mb-1">
-            <em>Hours</em>
-          </h3>
-          <div className="office-card__content__hours__timings">
-            {days.map((day, index) => {
-              return (
-                <p key={`${office.office} Office ${day} Hours`}>
-                  <strong>{day}: </strong>
-                  {office.hours[index]}
-                </p>
-              )
-            })}
-          </div>
-        </div> */}
       </div>
     </div>
   )
@@ -146,30 +109,16 @@ export default function Index({ setTitle, data }) {
             numquam commodi eligendi nostrum qui quaerat veritatis! Laboriosam
             id beatae hic!
           </h2>
-          {/* <BorderedScrollLink
-            to="landing-about"
-            smooth="easeInOutCubic"
-            className="--clear"
-            style={{
-              position: "relative",
-              zIndex: 903,
-              display: "inline-block",
-              margin: "0 auto 0 0",
-              fontSize: "1.5rem",
-            }}
-          >
-            Learn More
-          </BorderedScrollLink> */}
           <Logo className="landing-overlay__content__logo" />
         </Container>
       </div>
       <Container fluid className="landing-contact d-flex align-items-center">
         <Container>
           <Row className="d-flex align-items-center">
-            <Col xs={12} md={8}>
+            <Col xs={12} lg={8}>
               <Row
                 xs={1}
-                sm={2}
+                lg={2}
                 className="landing-contact__office-info-container"
               >
                 <Col className="landing-contact__office-info-container__office-info ">
@@ -204,7 +153,7 @@ export default function Index({ setTitle, data }) {
                 </Col>
               </Row>
             </Col>
-            <Col className="text-center" xs={12} md={4}>
+            <Col className="text-center" xs={12} lg={4}>
               <BorderedLink to="/contact" style={{ display: "block" }}>
                 Contact Us
               </BorderedLink>

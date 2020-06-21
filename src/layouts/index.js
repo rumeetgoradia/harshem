@@ -1,7 +1,6 @@
-// 490512
-
 import "bootstrap/dist/css/bootstrap.min.css"
 
+import Footer from "../components/Footer"
 import NavbarContainer from "../components/NavbarContainer"
 import React from "react"
 import SEO from "../components/seo"
@@ -51,6 +50,7 @@ export default ({ children }) => {
       <SEO title={title} />
       <NavbarContainer />
       {childrenWithProps}
+      <Footer />
     </>
   )
 }

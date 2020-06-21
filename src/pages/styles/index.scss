@@ -125,10 +125,16 @@
           }
         }
       }
+      div.d-flex {
+        justify-content: center;
+      }
       margin-bottom: 1rem;
-      @media screen and (min-width: 576px) {
+      @media screen and (min-width: 992px) {
         text-align: left;
         margin-bottom: 0;
+        div.d-flex {
+          justify-content: start;
+        }
       }
     }
   }
