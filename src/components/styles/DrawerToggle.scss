@@ -16,7 +16,7 @@
     width: 36px;
     height: 2px;
     position: relative;
-    background-color: var(--black);
+    background-color: var(--white);
     transition: background-color 0.3s linear;
     &::before,
     &::after {
@@ -24,7 +24,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%) rotate(0);
-      background-color: var(--black);
+      background-color: var(--white);
       width: 36px;
       height: 2px;
       transition: background-color 0.3s linear;
@@ -35,26 +35,6 @@
     &::after {
       top: 8px;
     }
-    &--scrolled {
-      background-color: var(--white);
-      &::before,
-      &::after {
-        background-color: var(--white);
-      }
-    }
-    // &--open {
-    //   background-color: transparent;
-    //   &::before,
-    //   &::after {
-    //     top: 0;
-    //   }
-    //   &::before {
-    //     transform: translateX(-50%) rotate(45deg);
-    //   }
-    //   &::after {
-    //     transform: translateX(-50%) rotate(-45deg);
-    //   }
-    // }
   }
   @media screen and (min-width: 768px) {
     display: none;

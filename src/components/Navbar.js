@@ -2,6 +2,7 @@ import "./styles/Navbar.scss"
 
 import DrawerToggle from "./DrawerToggle"
 import { Link } from "gatsby"
+import Logo from "../images/logo/logo.inline.svg"
 import React from "react"
 import { useEffect } from "react"
 import { useState } from "react"
@@ -30,8 +31,8 @@ function Navbar({ handleToggleClick, open }) {
     >
       <nav className="navbar__navigation">
         <div className="navbar__brand">
-          <Link to="/" className="navbar__brand-link">
-            LOGO
+          <Link to="/" className="navbar__brand__link">
+            <Logo />
           </Link>
         </div>
         <div className="navbar__spacer"></div>

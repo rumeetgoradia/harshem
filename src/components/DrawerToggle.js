@@ -2,14 +2,10 @@ import "./styles/DrawerToggle.scss"
 
 import React from "react"
 
-function DrawerToggle({ handleToggleClick, open, isScrolled }) {
+function DrawerToggle({ handleToggleClick }) {
   return (
     <button className="toggle-button" onClick={handleToggleClick}>
-      <div
-        className={`toggle-button__line${
-          open ? " toggle-button__line--open" : ""
-        }${isScrolled ? " toggle-button__line--scrolled" : ""}`}
-      />
+      <div className={`toggle-button__line`} />
     </button>
   )
 }

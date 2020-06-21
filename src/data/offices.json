@@ -1,0 +1,36 @@
+[
+  {
+    "office": "Rahway, NJ",
+    "shortName": "rahway",
+    "addressLine1": "1003 St. Georges Ave.",
+    "addressLine2": "Rahway, NJ 07065",
+    "phone": "(732) 388-3006",
+    "fax": "(732) 388-3006",
+    "hours": [
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "Closed"
+    ]
+  },
+  {
+    "office": "Elizabeth, NJ",
+    "shortName": "elizabeth",
+    "addressLine1": "700 N. Broad St.",
+    "addressLine2": "Elizabeth, NJ 07208",
+    "phone": "(908) 469-1500",
+    "fax": "(908) 469-1500",
+    "hours": [
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "9:00am — 10:00pm",
+      "Closed"
+    ]
+  }
+]

@@ -13,15 +13,17 @@ const borderedStyle = css`
   font-weight: 300;
   font-size: 1rem;
   letter-spacing: 2px;
-  padding: 8px 32px;
+  padding: 12px 32px;
   padding-right: 30px;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s linear, background-color 0.3s linear,
     transform 0.3s linear;
-  &:hover {
+  &:hover,
+  &:active {
     color: var(--primary);
     background-color: transparent;
+    text-decoration: none;
   }
   &:active {
     transform: translateY(3px);

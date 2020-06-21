@@ -6,10 +6,15 @@
   left: 0;
   z-index: 9999;
   background-color: transparent;
-  transition: height 0.3s linear, background-color 0.3s linear;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition: background-color 0.3s linear, backdrop-filter 0.3s linear,
+    border-bottom 0.3s linear, box-shadow 0.3s linear;
   &__navigation {
     display: flex;
     height: 100%;
+    width: 100%;
     align-items: center;
     padding: 0 1rem;
     @media screen and (min-width: 768px) {
@@ -17,10 +22,31 @@
     }
   }
   &__brand {
-    &-link {
-      color: var(--black);
+    height: 90%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s linear;
+    &__link {
       text-decoration: none;
-      font-size: 1.75rem;
+      svg {
+        height: 100%;
+        width: auto;
+        fill: var(--white);
+        opacity: 0.8;
+        transition: transform 0.3s linear, opacity 0.3s linear, fill 0.3s linear;
+      }
+      &:hover,
+      &:active {
+        svg {
+          opacity: 1;
+          fill: var(--secondary);
+        }
+      }
+      &:active {
+        svg {
+          transform: scale(0.9);
+        }
+      }
     }
   }
   &__spacer {
@@ -37,7 +63,7 @@
       li {
         margin: 0 0.5rem;
         .navbar__nav-link {
-          color: var(--black);
+          color: var(--white);
           font-weight: 300;
           letter-spacing: 1px;
           padding: 0 0.5rem;
@@ -57,7 +83,7 @@
             height: 2px;
             width: 0;
             bottom: -10px;
-            background-color: var(--black);
+            background-color: var(--white);
             transition: width 0.3s linear, background-color 0.3s linear;
           }
           &:hover {
@@ -84,10 +110,6 @@
       ul {
         li {
           .navbar__nav-link {
-            color: var(--white);
-            &:after {
-              background-color: var(--white);
-            }
             &--active {
               color: var(--secondary);
               &:after {
@@ -103,9 +125,13 @@
     }
   }
   &--scrolled {
-    background-color: rgba(124, 9, 30, 0.8);
-    height: 3.5rem;
-    backdrop-filter: saturate(180%) blur(4px);
+    background-color: rgba(95, 18, 37, 0.85);
+    backdrop-filter: saturate(180%) blur(5px);
     border-bottom: 1px solid var(--black);
+    box-shadow: 0 4px 4px 0 rgba(17, 17, 17, 0.4);
+    .navbar__brand {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
 }
