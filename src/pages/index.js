@@ -118,7 +118,7 @@ export default function Index({ setTitle, data }) {
             <Col xs={12} lg={8}>
               <Row
                 xs={1}
-                lg={2}
+                md={2}
                 className="landing-contact__office-info-container"
               >
                 <Col className="landing-contact__office-info-container__office-info ">

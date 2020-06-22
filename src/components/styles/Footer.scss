@@ -40,7 +40,9 @@
     }
   }
   &__info {
-    .col {
+    flex: 0 0 100%;
+    &__email,
+    &__office {
       margin-bottom: 1rem;
       text-align: center;
     }
@@ -66,11 +68,18 @@
         text-decoration: none;
       }
     }
+    &__icon {
+      margin-right: 4px;
+    }
     @media screen and (min-width: 768px) {
       margin-bottom: -1rem;
-      .col {
+      flex: 0 0 40%;
+      &__email,
+      &__office {
         text-align: left;
       }
+    }
+    @media screen and (min-width: 992px) {
       h1 {
         font-size: 1.25rem;
       }
@@ -81,6 +90,7 @@
     }
   }
   &__links {
+    flex: 0 0 100%;
     &--first {
       margin-bottom: 1rem;
     }
@@ -110,18 +120,20 @@
       }
     }
     @media screen and (min-width: 768px) {
+      flex: 0 0 30%;
       &--first {
         margin-bottom: 0;
       }
       .col {
         text-align: left;
       }
+    }
+    @media screen and (min-width: 992px) {
       h2 {
         font-size: 1.25rem;
       }
       &__link {
         font-size: 1rem;
-        // margin-left: 1rem;
       }
     }
   }
