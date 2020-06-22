@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Footer from "../components/Footer"
-import NavbarContainer from "../components/NavbarContainer"
+import Header from "../components/Header"
 import React from "react"
 import SEO from "../components/seo"
 import { createGlobalStyle } from "styled-components"
@@ -48,7 +48,8 @@ export default ({ children }) => {
     <>
       <GlobalStyle />
       <SEO title={title} />
-      <NavbarContainer />
+
+      <Header />
       {childrenWithProps}
       <Footer />
     </>
