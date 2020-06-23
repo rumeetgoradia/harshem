@@ -222,7 +222,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxHeight: 800) {
+            fluid(maxHeight: 1000) {
               ...GatsbyImageSharpFluid_tracedSVG
             }
           }
