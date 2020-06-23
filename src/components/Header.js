@@ -76,55 +76,50 @@ function Header() {
             id="navbar__nav__dropdown__1"
             className="navbar__nav__dropdown"
           >
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/about"
-                title="About Us"
-                activeClassName="navbar__nav-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                About Us
-              </Link>
+            <NavDropdown.Item
+              as={Link}
+              to="/about"
+              title="About Us"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              About Us
             </NavDropdown.Item>
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/providers"
-                title="Our Providers"
-                activeClassName="navbar__nav__dropdown-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                Our Providers
-              </Link>
+            <NavDropdown.Item
+              as={Link}
+              to="/providers"
+              title="Our Providers"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              Our Providers
             </NavDropdown.Item>
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/offices"
-                title="Our Offices"
-                activeClassName="navbar__nav__dropdown-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                Our Offices
-              </Link>
+            <NavDropdown.Item
+              as={Link}
+              to="/offices"
+              title="Our Offices"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              Our Offices
             </NavDropdown.Item>
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/services"
-                title="Our Services"
-                activeClassName="navbar__nav__dropdown-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                Our Services
-              </Link>
+            <NavDropdown.Item
+              as={Link}
+              to="/services"
+              title="Our Services"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              Our Services
             </NavDropdown.Item>
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/insuranceplans"
-                title="Accepted Insurance Plans"
-                activeClassName="navbar__nav__dropdown-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                Accepted Insurance Plans
-              </Link>
+            <NavDropdown.Item
+              as={Link}
+              to="/insuranceplans"
+              title="Accepted Insurance Plans"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              Accepted Insurance Plans
             </NavDropdown.Item>
           </NavDropdown>
           <NavDropdown
@@ -132,25 +127,24 @@ function Header() {
             id="navbar__nav__dropdown__2"
             className="navbar__nav__dropdown"
           >
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/registration"
-                title="New Patient Registration"
-                activeClassName="navbar__nav__dropdown-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                New Patient Registration
-              </Link>
+            <NavDropdown.Item
+              as={Link}
+              to="/registration"
+              title="New Patient Registration"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              New Patient Registration
             </NavDropdown.Item>
-            <NavDropdown.Item className="navbar__nav__dropdown__item">
-              <Link
-                to="/appointment"
-                title="Request an Appointment"
-                activeClassName="navbar__nav__dropdown-link--active"
-                className="navbar__nav__dropdown-link"
-              >
-                Request an Appointment
-              </Link>
+
+            <NavDropdown.Item
+              as={Link}
+              to="/appointment"
+              title="Request an Appointment"
+              activeClassName="navbar__nav__dropdown__link--active"
+              className="navbar__nav__dropdown__link"
+            >
+              Request an Appointment
             </NavDropdown.Item>
           </NavDropdown>
           <Link

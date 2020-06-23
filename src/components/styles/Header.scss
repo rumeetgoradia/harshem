@@ -69,8 +69,9 @@
     &__dropdown__1,
     &__dropdown__2,
     .navbar__nav__link,
-    .navbar__nav__dropdown__item,
-    .navbar__nav__dropdown__item a {
+    .navbar__nav__dropdown__link {
+      display: block;
+      white-space: nowrap;
       color: var(--white);
       transition: color 0.3s linear;
       &:hover,
@@ -107,8 +108,8 @@
       animation-fill-mode: both;
       transition: height 0.3s linear, opacity 0.3s linear;
     }
-    .navbar__nav__dropdown__item,
-    .navbar__nav__dropdown__item a {
+    .navbar__nav__dropdown__link {
+      padding: 0.25rem 0.5rem;
       transition: color 0.3s linear, background-color 0.3s linear;
       &:hover,
       &:focus,
