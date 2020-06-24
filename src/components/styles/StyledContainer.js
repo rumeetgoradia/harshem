@@ -1,6 +1,6 @@
-import { Container } from "react-bootstrap"
 import PropTypes from "prop-types"
 import React from "react"
+import { Container } from "react-bootstrap"
 import styled from "styled-components"
 
 export const StyledContainer = styled(Container)`
@@ -33,7 +33,34 @@ export const StyledParagraph = styled.p`
   font-weight: 300;
   line-height: 1.15;
   margin: 0 0 1rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  a {
+    cursor: pointer;
+    color: var(--black);
+    text-decoration: none;
+    transition: color 0.3s linear;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      color: var(--ternary);
+    }
+  }
+  span {
+    margin-left: 7px;
+    &.second-line {
+      margin-left: 23px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 1.25rem;
+    span {
+      margin-left: 12px;
+      &.second-line {
+        margin-left: 32px;
+      }
+    }
+  }
 `
 
 export function InfoContainer({

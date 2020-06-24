@@ -1,11 +1,10 @@
-import "./styles/Hero.scss"
-
-import { Carousel, Container } from "react-bootstrap"
 import { graphql, useStaticQuery } from "gatsby"
-
 import Img from "gatsby-image/withIEPolyfill"
-import Logo from "../images/logo/logo.inline.svg"
+import PropTypes from "prop-types"
 import React from "react"
+import { Carousel, Container } from "react-bootstrap"
+import Logo from "../images/logo/logo.inline.svg"
+import "./styles/Hero.scss"
 
 export default function Hero({ title }) {
   const data = useStaticQuery(graphql`
@@ -27,7 +26,7 @@ export default function Hero({ title }) {
     }
   `)
   const { edges: heroImgs } = data.heroImgs
-  console.log(heroImgs)
+
   return (
     <>
       <Carousel
@@ -64,4 +63,8 @@ export default function Hero({ title }) {
       </div>
     </>
   )
+}
+
+Hero.propTypes = {
+  title: PropTypes.string.isRequired,
 }

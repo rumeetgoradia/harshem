@@ -14,7 +14,8 @@
       "9:00am — 10:00pm",
       "9:00am — 10:00pm",
       "Closed"
-    ]
+    ],
+    "googleMaps": "https://goo.gl/maps/5WqDkB2r7yqtj1nZ7"
   },
   {
     "office": "Elizabeth, NJ",
@@ -31,6 +32,7 @@
       "9:00am — 10:00pm",
       "9:00am — 10:00pm",
       "Closed"
-    ]
+    ],
+    "googleMaps": "https://goo.gl/maps/b8ejAtLB7GgHSBkJ7"
   }
 ]

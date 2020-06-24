@@ -1,0 +1,13 @@
+#about-intro {
+  &__logo {
+    fill: var(--secondary);
+    max-height: 300px;
+    width: auto;
+    transition: fill 0.3s linear;
+  }
+  &:hover {
+    #about-intro__logo {
+      fill: var(--primary);
+    }
+  }
+}
