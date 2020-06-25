@@ -1,12 +1,8 @@
-import "./styles/Header.scss"
-
-import { Nav, NavDropdown, Navbar } from "react-bootstrap"
-
 import { Link } from "gatsby"
+import React, { useEffect, useState } from "react"
+import { Nav, Navbar, NavDropdown } from "react-bootstrap"
 import Logo from "../images/logo/logo.inline.svg"
-import React from "react"
-import { useEffect } from "react"
-import { useState } from "react"
+import "./styles/Header.scss"
 
 // import DrawerToggle from "./DrawerToggle"
 
@@ -47,7 +43,6 @@ function Header() {
       }`}
       id="navbar"
       expanded={isExpanded}
-      onSelect={() => setExpanded(false)}
     >
       <Navbar.Brand id="navbar__brand">
         <Link to="/" id="navbar__brand__link">
@@ -63,14 +58,16 @@ function Header() {
       </Navbar.Toggle>
       <Navbar.Collapse id="navbar__nav">
         <Nav className="ml-auto">
-          <Link
+          <Nav.Link
+            as={Link}
             to="/"
             title="Home"
             activeClassName="navbar__nav__link--active"
             className="navbar__nav__link"
+            onClick={() => setExpanded(false)}
           >
             Home
-          </Link>
+          </Nav.Link>
           <NavDropdown
             title="Information"
             id="navbar__nav__dropdown__1"
@@ -82,6 +79,7 @@ function Header() {
               title="About Us"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               About Us
             </NavDropdown.Item>
@@ -91,6 +89,7 @@ function Header() {
               title="Our Providers"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               Our Providers
             </NavDropdown.Item>
@@ -100,6 +99,7 @@ function Header() {
               title="Our Offices"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               Our Offices
             </NavDropdown.Item>
@@ -109,6 +109,7 @@ function Header() {
               title="Our Services"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               Our Services
             </NavDropdown.Item>
@@ -118,6 +119,7 @@ function Header() {
               title="Accepted Insurance Plans"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               Accepted Insurance Plans
             </NavDropdown.Item>
@@ -133,28 +135,31 @@ function Header() {
               title="New Patient Registration"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               New Patient Registration
             </NavDropdown.Item>
-
             <NavDropdown.Item
               as={Link}
               to="/appointment"
               title="Request an Appointment"
               activeClassName="navbar__nav__dropdown__link--active"
               className="navbar__nav__dropdown__link"
+              onClick={() => setExpanded(false)}
             >
               Request an Appointment
             </NavDropdown.Item>
           </NavDropdown>
-          <Link
+          <Nav.Link
+            as={Link}
             to="/contact"
             title="Contact Us"
             activeClassName="navbar__nav__link--active"
             className="navbar__nav__link"
+            onClick={() => setExpanded(false)}
           >
             Contact Us
-          </Link>
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

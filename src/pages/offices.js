@@ -42,7 +42,7 @@ function Offices({ setTitle, data }) {
               </Col>
               <Col xs={12} lg={{ offset: 1, span: 4 }}>
                 <Row xs={1} md={2} lg={1} className="office__info-container">
-                  <Col className="office__info-container__info">
+                  <Col className="mt-2 office__info-container__info">
                     <StyledParagraph>
                       <FaPhoneAlt />
                       <span>{office.phone}</span>
@@ -66,7 +66,7 @@ function Offices({ setTitle, data }) {
                       </a>
                     </StyledParagraph>
                   </Col>
-                  <Col className="office__info-container__info">
+                  <Col className="mt-2 office__info-container__info">
                     {days.map((day, index) => {
                       return (
                         <StyledParagraph
