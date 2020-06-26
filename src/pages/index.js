@@ -1,19 +1,18 @@
-import "./styles/index.scss"
-
+import { graphql } from "gatsby"
+import Img from "gatsby-image/withIEPolyfill"
+import React, { useEffect } from "react"
 import { Carousel, Col, Container, Row } from "react-bootstrap"
 import { FaFax, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
 import { FiMapPin, FiPhone } from "react-icons/fi"
+import { BorderedLink } from "../components/styles/StyledClickables"
 import {
   InfoContainer,
   StyledParagraph,
 } from "../components/styles/StyledContainer"
-import React, { useEffect } from "react"
-
-import { BorderedLink } from "../components/styles/StyledClickables"
-import Img from "gatsby-image/withIEPolyfill"
-import Logo from "../images/logo/logo.inline.svg"
-import { graphql } from "gatsby"
+import content from "../data/content.json"
 import offices from "../data/offices.json"
+import Logo from "../images/logo/logo.inline.svg"
+import "./styles/index.scss"
 
 function OfficeCard({ office, officeImg }) {
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -104,11 +103,7 @@ export default function Index({ setTitle, data }) {
           <h1>
             <span>Harshem</span> Family Practice
           </h1>
-          <h2>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam
-            numquam commodi eligendi nostrum qui quaerat veritatis! Laboriosam
-            id beatae hic!
-          </h2>
+          <h2>{content.mission}</h2>
           <Logo className="landing-overlay__content__logo" />
         </Container>
       </div>
@@ -121,79 +116,42 @@ export default function Index({ setTitle, data }) {
                 md={2}
                 className="landing-contact__office-info-container"
               >
-                <Col className="landing-contact__office-info-container__office-info ">
-                  <h6 className="mb-1">Rahway</h6>
-                  <div className="d-flex">
-                    <p className="mr-3">
-                      <FiMapPin />
-                      <span>1003 St. Georges Ave.</span>
-                      <br />
-                      <span className="second-line">Rahway, NJ 07065</span>
-                    </p>
-                    <p>
-                      <FiPhone />
-                      <span>(732) 388-3006</span>
-                    </p>
-                  </div>
-                </Col>
-                <Col className="landing-contact__office-info-container__office-info">
-                  <h6 className="mb-1">Elizabeth</h6>
-                  <div className="d-flex">
-                    <p className="mr-3">
-                      <FiMapPin />
-                      <span>700 N. Broad St.</span>
-                      <br />
-                      <span className="second-line">Elizabeth, NJ 07208</span>
-                    </p>
-                    <p>
-                      <FiPhone />
-                      <span>(908) 469-1500</span>
-                    </p>
-                  </div>
-                </Col>
+                {offices.map((office, index) => {
+                  return (
+                    <Col
+                      className="landing-contact__office-info-container__office-info"
+                      key={`quick-office-${index}`}
+                    >
+                      <h6 className="mb-1">{office.office}</h6>
+                      <div className="d-flex">
+                        <p className="mr-3">
+                          <FiMapPin />
+                          <span>{office.addressLine1}</span>
+                          <br />
+                          <span className="second-line">
+                            {office.addressLine2}
+                          </span>
+                        </p>
+                        <p>
+                          <FiPhone />
+                          <span>{office.phone}</span>
+                        </p>
+                      </div>
+                    </Col>
+                  )
+                })}
               </Row>
             </Col>
             <Col className="text-center" xs={12} lg={4}>
-              <BorderedLink to="/contact" style={{ display: "block" }}>
-                Contact Us
+              <BorderedLink to="/appointment" style={{ display: "block" }}>
+                Request an Appointment
               </BorderedLink>
             </Col>
           </Row>
         </Container>
       </Container>
       <InfoContainer header="About Us">
-        <>
-          <StyledParagraph>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            facere dolore fugit sunt vel quis, numquam excepturi. Provident,
-            facilis libero dicta amet quia maiores ratione neque praesentium non
-            culpa ipsa assumenda ducimus quas suscipit deserunt laborum dolorem
-            repudiandae. Maxime cum neque quibusdam voluptatum laborum nemo
-            optio illum fuga error consequuntur.
-          </StyledParagraph>
-          <StyledParagraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-            quod aspernatur neque deleniti ex obcaecati possimus maxime eius
-            ducimus iste accusantium eaque quos praesentium officiis illum,
-            vitae molestias a ratione? Nisi reiciendis corporis similique amet
-            eligendi, ut nostrum necessitatibus aut. Necessitatibus magnam autem
-            rerum quo distinctio minima fugit fuga mollitia temporibus ea animi
-            illum aut officiis magni laudantium amet dolores, excepturi
-            provident labore. Quo possimus odit ipsum architecto rerum vel, quas
-            sunt modi, magni fugiat, unde itaque aperiam?
-          </StyledParagraph>
-          <StyledParagraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            sed quibusdam minus temporibus maiores consequuntur! Quo et totam,
-            non possimus deserunt tenetur iusto aliquam odio recusandae
-            consectetur adipisci officiis. Nobis odio repellendus officiis
-            dolore quo! Pariatur, sapiente quas. Similique aliquid eaque nulla
-            quibusdam dolores quam, iste cumque debitis labore dignissimos
-            voluptatum sequi sit quaerat aperiam est nostrum. Sequi cum fuga
-            impedit dolor. Vel veritatis laudantium repellat recusandae
-            accusantium!
-          </StyledParagraph>
-        </>
+        <StyledParagraph className="mb-0">{content.desc[0]}</StyledParagraph>
       </InfoContainer>
       <InfoContainer secondary header="Our Offices">
         <Row xs={1} md={2} style={{ marginBottom: "-1rem" }}>

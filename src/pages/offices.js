@@ -71,7 +71,9 @@ function Offices({ setTitle, data }) {
                       return (
                         <StyledParagraph
                           style={{ marginBottom: ".25rem" }}
-                          key={`${office.office} Office ${day} Hours`}
+                          key={`${
+                            office.office
+                          }-office-${day.toLowerCase()}-hours`}
                         >
                           <strong
                             style={{
