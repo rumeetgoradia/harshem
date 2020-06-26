@@ -21,6 +21,14 @@ export const StyledHeader = styled.h1`
   line-height: 1;
 `
 
+export const StyledSubheader = styled.h2`
+  color: var(--black);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+`
+
 export const StyledHr = styled.hr`
   width: 5%;
   min-width: 40px;
