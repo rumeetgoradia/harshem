@@ -25,6 +25,7 @@ export const StyledTextInput = styled.input`
 
 export const StyledTextArea = styled.textarea`
   ${inputCss}
+  margin-bottom: 0 !important;
 `
 
 export const StyledSelect = styled.select`
