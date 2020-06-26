@@ -1,12 +1,10 @@
-import "./styles/Footer.scss"
-
+import { Link } from "gatsby"
+import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { FiMail, FiPhone } from "react-icons/fi"
-
-import { Link } from "gatsby"
-import Logo from "../images/logo/logo.inline.svg"
-import React from "react"
 import offices from "../data/offices.json"
+import Logo from "../images/logo/logo.inline.svg"
+import "./styles/Footer.scss"
 
 function Footer() {
   return (
@@ -85,13 +83,13 @@ function Footer() {
                 </Link>
               </Col>
               <Col>
-                <Link className="footer__links__link" to="/appointment">
-                  Appointment Request
+                <Link className="footer__links__link" to="/registration">
+                  New Patient Registration
                 </Link>
               </Col>
               <Col>
-                <Link className="footer__links__link" to="/registration">
-                  New Patient Registration
+                <Link className="footer__links__link" to="/appointment">
+                  Appointment Request
                 </Link>
               </Col>
             </Row>
