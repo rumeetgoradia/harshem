@@ -1,8 +1,7 @@
 import { Field, Form, Formik, useField } from "formik"
 import React, { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
-import { FaFax, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
-import { IoIosMail } from "react-icons/io"
+import { FaEnvelope, FaFax, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
 import styled from "styled-components"
 import * as yup from "yup"
 import Hero from "../components/Hero"
@@ -121,7 +120,7 @@ function Contact({ setTitle }) {
                   href="mailto:info@harshemfamilypractice.com"
                   title="Email"
                 >
-                  <IoIosMail style={{ marginRight: width < 768 ? 6 : 10 }} />
+                  <FaEnvelope style={{ marginRight: width < 768 ? 6 : 10 }} />
                   info@harshemfamilypractice.com
                 </SmallAnchor>
               </StyledParagraph>

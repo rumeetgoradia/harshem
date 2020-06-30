@@ -175,7 +175,7 @@ export const query = graphql`
   query {
     heroImgs: allFile(
       sort: { order: ASC, fields: name }
-      filter: { relativePath: { regex: "/background/" } }
+      filter: { relativeDirectory: { regex: "/background/" } }
     ) {
       edges {
         node {
@@ -189,7 +189,7 @@ export const query = graphql`
     }
     officeImgs: allFile(
       sort: { order: ASC, fields: name }
-      filter: { relativePath: { regex: "/office/" } }
+      filter: { relativeDirectory: { regex: "/office/" } }
     ) {
       edges {
         node {

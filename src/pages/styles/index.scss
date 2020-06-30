@@ -78,11 +78,11 @@
       color: var(--white);
       text-shadow: 1px 1px 4px rgba(17, 17, 17, 0.5);
       font-weight: 300;
-      font-size: 1rem;
+      font-size: 1.25rem;
       position: relative;
       z-index: 903;
       @media screen and (min-width: 768px) {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
       }
     }
     &__logo {

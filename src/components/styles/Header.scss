@@ -137,6 +137,9 @@
       .navbar__nav__link {
         padding: 0.5rem;
         text-shadow: 1px 1px 3px rgba(17, 17, 17, 1);
+        &--active {
+          text-shadow: 1px 1px 0px var(--primary);
+        }
       }
       .dropdown-menu {
         border-left: none;
