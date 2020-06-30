@@ -30,7 +30,9 @@ function Services({ setTitle }) {
             >
               {category.services.map((service, serviceIndex) => {
                 return (
-                  <StyledMasonryBox key={`${category}-service-${serviceIndex}`}>
+                  <StyledMasonryBox
+                    key={`${category.category}-service-${serviceIndex}`}
+                  >
                     <h1>{service.service}</h1>
                     {service.notes ? <h2>{service.notes}</h2> : null}
                     {service.onlyAt ? <h3>{service.onlyAt} Only</h3> : null}
