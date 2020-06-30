@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import { FiMail, FiPhone } from "react-icons/fi"
+import content from "../data/content.json"
 import offices from "../data/offices.json"
 import Logo from "../images/logo/logo.inline.svg"
 import "./styles/Footer.scss"
@@ -24,7 +25,7 @@ function Footer() {
               <Col xs={12} className="footer__info__email">
                 <a href="mailto:info@harshemfamilypractice.com">
                   <FiMail className="footer__info__icon" />
-                  info@harshemfamilypractice.com
+                  {content.email}
                 </a>
               </Col>
               {offices.map((office, index) => {

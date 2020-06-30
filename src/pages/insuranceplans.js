@@ -9,6 +9,7 @@ import {
   InfoContainer,
   StyledParagraph,
 } from "../components/styles/StyledContainer"
+import content from "../data/content.json"
 import plans from "../data/plans.json"
 
 function Plans({ setTitle }) {
@@ -20,9 +21,7 @@ function Plans({ setTitle }) {
     <>
       <Hero title="Accepted Insurance Plans" />
       <InfoContainer header="Insurance Plans">
-        <StyledParagraph>
-          We participate with most insurance plans as listed below.
-        </StyledParagraph>
+        <StyledParagraph>{content.plansIntro}</StyledParagraph>
         <StyledMasonry
           breakpointCols={MasonryInfo.breakpoints}
           className={MasonryInfo.className}
@@ -37,6 +36,17 @@ function Plans({ setTitle }) {
             )
           })}
         </StyledMasonry>
+      </InfoContainer>
+      <InfoContainer header="Billing" secondary>
+        <>
+          {content.billing.map((billingPar, index) => {
+            return (
+              <StyledParagraph key={`billing-para-${index}`}>
+                {billingPar}
+              </StyledParagraph>
+            )
+          })}
+        </>
       </InfoContainer>
     </>
   )

@@ -5,6 +5,7 @@ export const MasonryInfo = {
   breakpoints: {
     default: 3,
     767: 2,
+    425: 1,
   },
   className: "masonry",
   columnClassName: "masonry-col",
@@ -32,6 +33,7 @@ export const StyledMasonryBox = styled.div`
     font-size: 1rem;
     font-weight: 500;
     margin: 0;
+    text-transform: uppercase;
   }
   h2 {
     font-size: 14px;
@@ -39,16 +41,28 @@ export const StyledMasonryBox = styled.div`
     font-weight: 400;
     margin-top: 0.75rem;
     margin-bottom: 0;
+    text-transform: initial;
   }
   h3 {
-    font-size: 10px;
-    margin-top: 0.5rem;
+    font-size: 12px;
+    margin-top: 0.75rem;
     font-weight: 300;
+    letter-spacing: 1px;
     margin-bottom: 0;
-    opacity: 0.5;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--black);
+    color: var(--white);
+    transition: background-color 0.3s linear;
   }
   &:hover {
     border-color: var(--primary);
     color: var(--primary);
+    h3 {
+      color: var(--white);
+      background-color: var(--primary);
+    }
   }
 `

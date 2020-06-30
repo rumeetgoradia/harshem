@@ -1,0 +1,148 @@
+[
+  {
+    "category": "General Health",
+    "services": [
+      { "service": "Treatment of acute & chronic illnesses" },
+      { "service": "Preventive and wellness visit (annual)" },
+      { "service": "Diagnostic and preventive screening" },
+      {
+        "service": "Immunization/vaccinations",
+        "notes": "Limited as covered by individual insurance"
+      },
+      { "service": "school/college physical" },
+      { "service": "Employment physical" },
+      { "service": "Pre-operative consultation & medical clearance" },
+      { "service": "Malaria prophylaxis" }
+    ]
+  },
+  {
+    "category": "Diagnostic Screening",
+    "services": [
+      { "service": "Malaria prophylaxis" },
+      { "service": "Blood pressure screening" },
+      { "service": "Diabetes mellitus screening" },
+      { "service": "Cholesterol screening" },
+      { "service": "Thyroid disorder screening" },
+      { "service": "Asthma screening" },
+      { "service": "Anemia screening" },
+      { "service": "Obesity screening" },
+      { "service": "Kidney disease screening" },
+      { "service": "Lung cancer screening" },
+      { "service": "Prostate cancer screening" },
+      { "service": "Hepatitis B and C screening" },
+      { "service": "HIV screening" },
+      { "service": "STD screening" },
+      { "service": "Ovarian cancer screening" },
+      { "service": "Uterine cancer screening" },
+      { "service": "Breast Cancer Screening" },
+      { "service": "Depression Screening" },
+      { "service": "Anxiety Screening" },
+      { "service": "Osteopenia Screening" },
+      { "service": "Osteoporosis Screening" }
+    ]
+  },
+  {
+    "category": "Preventive Screening",
+    "services": [
+      { "service": "Breast cancer screening" },
+      { "service": "Cervical cancer screening" },
+      { "service": "Colon cancer screening" },
+      { "service": "Prostate Cancer Screening" },
+      { "service": "Ovarian cancer Screening" },
+      { "service": "Pap smear and HRT Screening" },
+      { "service": "STD Screening" }
+    ]
+  },
+  {
+    "category": "Office Tests and Procedures",
+    "services": [
+      { "service": "ECG/EKG" },
+      { "service": "Laboratory services" },
+      { "service": "Metabolic testing" },
+      { "service": "Pulmonary function test" },
+      { "service": "TB testing" },
+      { "service": "Pap smear" },
+      { "service": "STD testing" }
+    ]
+  },
+  {
+    "category": "Therapeutic Injections",
+    "services": [
+      { "service": "B12 injection" },
+      { "service": "Benadryl injection" },
+      { "service": "Solu-medrol injection" }
+    ]
+  },
+  {
+    "category": "Vaccinations",
+    "services": [
+      { "service": "Hepatitis B" },
+      { "service": "Influenza" },
+      { "service": "TD", "notes": "May involve additional charges" },
+      { "service": "TDAP", "notes": "May involve additional charges" },
+      { "service": "MMR", "notes": "May involve additional charges" },
+      { "service": "Zostavax", "notes": "May involve additional charges" },
+      { "service": "Menactra", "notes": "May involve additional charges" }
+    ]
+  },
+  {
+    "category": "Acute Medical Conditions",
+    "services": [
+      { "service": "Allergies" },
+      { "service": "Asthma" },
+      { "service": "Cold and flu" },
+      { "service": "Ear, nose, & throat diseases" },
+      { "service": "Gastrointestinal illnesses" },
+      { "service": "Lyme Disease" },
+      { "service": "Pink eye" },
+      { "service": "Acute grief Reaction" },
+      { "service": "Respiratory illnesses" },
+      { "service": "Sinus infections" },
+      { "service": "Skin ailments" },
+      { "service": "Strep throat" },
+      { "service": "Urinary tract infection" },
+      {
+        "service": "Injury",
+        "notes": "Not related to Workman's Comp or MVA"
+      },
+      { "service": "Bites and stings" },
+      { "service": "Minor burns" },
+      { "service": "Cuts and scrapes" },
+      { "service": "Sprain" },
+      { "service": "Coronavirus" }
+    ]
+  },
+  {
+    "category": "Chronic Medical Conditions",
+    "services": [
+      { "service": "Hypertension" },
+      { "service": "Diabetes" },
+      { "service": "Hyperlipidemia" },
+      { "service": "Thyroid disorder" },
+      { "service": "Asthma" },
+      { "service": "COPD" },
+      { "service": "CVA" },
+      { "service": "ASCAD" },
+      { "service": "Dementia" },
+      { "service": "Malignancy supportive care" },
+      { "service": "Arthritis" },
+      { "service": "Osteoporosis and Osteopenia" },
+      { "service": "Menopause" },
+      { "service": "Low back pain & joint pain" },
+      {
+        "service": "Weight Loss management",
+        "notes": "Insurance exempt",
+        "onlyAt": "Rahway"
+      },
+      { "service": "Smoking cessation" },
+      { "service": "Vasculitis" },
+      { "service": "Depression" },
+      { "service": "Generalized Anxiety Disorder" },
+      { "service": "Rheumatoid arthritis" },
+      {
+        "service": "Lupus and other Vasculitis concurrent management and supportive care"
+      },
+      { "service": "Malignancy concurrent management and supportive care" }
+    ]
+  }
+]

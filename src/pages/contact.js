@@ -12,6 +12,7 @@ import {
   StyledParagraph,
   StyledSubheader,
 } from "../components/styles/StyledContainer"
+import content from "../data/content.json"
 import offices from "../data/offices.json"
 
 function Contact({ setTitle }) {
@@ -121,7 +122,7 @@ function Contact({ setTitle }) {
                   title="Email"
                 >
                   <FaEnvelope style={{ marginRight: width < 768 ? 6 : 10 }} />
-                  info@harshemfamilypractice.com
+                  {content.email}
                 </SmallAnchor>
               </StyledParagraph>
             </Col>

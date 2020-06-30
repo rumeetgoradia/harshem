@@ -1,23 +1,19 @@
 [
   {
-    "plan": "1199 BENEFIT PLAN",
-    "notes": ""
+    "plan": "1199 BENEFIT PLAN"
   },
   {
-    "plan": "AETNA PPO",
-    "notes": ""
+    "plan": "AETNA PPO"
   },
   {
     "plan": "AETNA POS/EPO",
     "notes": "May require PCP selection"
   },
   {
-    "plan": "AETNA BETTER HEALTH",
-    "notes": ""
+    "plan": "AETNA BETTER HEALTH"
   },
   {
-    "plan": "AETNA OPEN CHOICE",
-    "notes": ""
+    "plan": "AETNA OPEN CHOICE"
   },
   {
     "plan": "AMERIGROUP",
@@ -32,12 +28,10 @@
     "notes": "May require PCP selection"
   },
   {
-    "plan": "CCN (COMMUNITY CARE NETWORK)",
-    "notes": ""
+    "plan": "CCN (COMMUNITY CARE NETWORK)"
   },
   {
-    "plan": "CHN",
-    "notes": ""
+    "plan": "CHN"
   },
   {
     "plan": "CIGNA PPO/HMO",
@@ -56,8 +50,7 @@
     "notes": "May require PCP selection"
   },
   {
-    "plan": "DIRECT ACCESS",
-    "notes": ""
+    "plan": "DIRECT ACCESS"
   },
   {
     "plan": "HORIZON NJ HEALTH",
@@ -84,44 +77,36 @@
     "notes": "May require PCP selection"
   },
   {
-    "plan": "HUMANA CHOICE PPO",
-    "notes": ""
+    "plan": "HUMANA CHOICE PPO"
   },
   {
-    "plan": "MAGNA CARE",
-    "notes": ""
+    "plan": "MAGNA CARE"
   },
   {
-    "plan": "MEDICAID / NJ FAMILY CARE",
-    "notes": ""
+    "plan": "MEDICAID / NJ FAMILY CARE"
   },
   {
-    "plan": "MEDICARE — STRAIGHT / TRADITIONAL",
-    "notes": ""
+    "plan": "MEDICARE — STRAIGHT / TRADITIONAL"
   },
   {
     "plan": "OXFORD (UNITED) PPO / HMO",
     "notes": "May require PCP selection"
   },
   {
-    "plan": "PHCS (PRIVATE HEALTHCARE)",
-    "notes": ""
+    "plan": "PHCS (PRIVATE HEALTHCARE)"
   },
   {
-    "plan": "PHS (HEALTHNET)",
-    "notes": ""
+    "plan": "PHS (HEALTHNET)"
   },
   {
-    "plan": "QUALCARE",
-    "notes": ""
+    "plan": "QUALCARE"
   },
   {
     "plan": "OSCAR",
     "notes": "May require PCP selection"
   },
   {
-    "plan": "TRICARE",
-    "notes": ""
+    "plan": "TRICARE"
   },
   {
     "plan": "UNITED HEALTHCARE AARP MEDICARE COMPLETE HMO",
