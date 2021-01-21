@@ -1,4 +1,6 @@
-const fonts = {
+import { FoundationsOverride } from "./index"
+
+const fonts: FoundationsOverride["fonts"] = {
 	body:
 		'"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
 }

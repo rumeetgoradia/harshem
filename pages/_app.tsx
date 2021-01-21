@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar"
 import theme, { fontFaces } from "@/theme"
 import { ChakraProvider } from "@chakra-ui/react"
 import { Global } from "@emotion/react"
@@ -11,6 +12,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 			<DefaultSeo {...SEO} />
 			<ChakraProvider theme={theme}>
 				<Global styles={fontFaces} />
+				<Navbar />
 				<Component {...pageProps} />
 			</ChakraProvider>
 		</>

@@ -1,2 +1,2 @@
-export const SITE_NAME = "Example"
-export const SITE_URL = "https://www.example.com"
+export const SITE_NAME = "Harshem Family Practice"
+export const SITE_URL = "https://www.harshemfamilypractice.com"
