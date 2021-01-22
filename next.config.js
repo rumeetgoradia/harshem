@@ -17,6 +17,18 @@ module.exports = {
 				},
 			],
 		})
+		config.module.rules.push({
+			test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+			use: [
+				{
+					loader: "file-loader",
+					options: {
+						name: "[name].[ext]",
+						outputPath: "fonts/",
+					},
+				},
+			],
+		})
 		config.resolve.alias["images"] = path.join(__dirname, "public", "images")
 
 		// if (isServer) {
