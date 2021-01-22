@@ -1,6 +1,6 @@
+import Button from "@/components/Button"
 import { NavItemDropdown } from "@/constants"
 import {
-	Button,
 	Menu,
 	MenuButton,
 	MenuItem,
@@ -53,33 +53,9 @@ const NavMenuDropdown: React.FC<NavMenuDropdownProps> = ({
 					<MenuButton
 						as={Button}
 						rightIcon={<FaChevronDown />}
-						h={10}
-						fontWeight={500}
-						letterSpacing="1px"
-						bg={
-							isDropdownActive
-								? isScrolled
-									? "brand.600"
-									: "gray.200"
-								: "transparent"
-						}
-						color={
-							isDropdownActive
-								? isScrolled
-									? "white"
-									: "brand.700"
-								: isScrolled
-								? "white"
-								: "black"
-						}
-						textTransform="capitalize"
-						_hover={{
-							bg: isScrolled ? "brand.600" : "gray.200",
-						}}
-						_active={{
-							bg: isScrolled ? "brand.600" : "gray.200",
-							color: isScrolled ? "white" : "brand.700",
-						}}
+						variant="nav"
+						isActive={isDropdownActive}
+						isInverted={isScrolled}
 					>
 						{navItem.title}
 					</MenuButton>
