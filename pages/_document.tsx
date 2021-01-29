@@ -14,6 +14,7 @@ class MyDocument extends Document {
 						type="font/woff2"
 						crossOrigin="anonymous"
 					/>
+					<link rel="stylesheet" href="/fonts/fonts.css" />
 					<link
 						rel="apple-touch-icon"
 						sizes="180x180"

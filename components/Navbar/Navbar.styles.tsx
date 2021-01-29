@@ -14,13 +14,9 @@ const useNavbarStyles = makeStyles((theme) => ({
 			"box-shadow",
 		]),
 		[theme.breakpoints.up("md")]: {
-			backgroundColor: (props: NavbarStylesProps) =>
-				props.isScrolled
-					? theme.palette.primary.main
-					: theme.palette.common.white,
 			padding: (props: NavbarStylesProps) =>
 				props.isScrolled
-					? `${theme.spacing(1)}px ${theme.spacing(7.5)}`
+					? `${theme.spacing(1)}px ${theme.spacing(7.5)}px`
 					: `${theme.spacing(2)}px ${theme.spacing(7.5)}px`,
 		},
 	},
@@ -38,12 +34,14 @@ const useNavbarStyles = makeStyles((theme) => ({
 			opacity: 1,
 		},
 		[theme.breakpoints.up("md")]: {
-			height: (props: NavbarStylesProps) => (props.isScrolled ? 64 : 80),
-			fill: (props: NavbarStylesProps) =>
-				props.isScrolled
-					? theme.palette.common.white
-					: theme.palette.primary.main,
+			height: (props: NavbarStylesProps) => (props.isScrolled ? 56 : 80),
 		},
+	},
+	drawer: {
+		padding: `${theme.spacing(1) + 84}px ${theme.spacing(
+			7.5
+		)}px ${theme.spacing(2)}px`,
+		backgroundColor: theme.palette.primary.main,
 	},
 }))
 
