@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import theme from "@/theme"
 import CssBaseline from "@material-ui/core/CssBaseline"
@@ -20,10 +21,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 		<>
 			<DefaultSeo {...SEO} />
 			<ThemeProvider theme={theme}>
-				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
 				<CssBaseline />
 				<Navbar />
 				<Component {...pageProps} />
+				<Footer />
 			</ThemeProvider>
 		</>
 	)

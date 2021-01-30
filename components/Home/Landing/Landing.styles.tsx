@@ -48,9 +48,6 @@ const useLandingStyles = makeStyles((theme) => ({
 		fontSize: "calc(3rem + 2.5vw)",
 		marginBottom: theme.spacing(2),
 		letterSpacing: 1,
-		[theme.breakpoints.up("md")]: {
-			marginBottom: theme.spacing(4),
-		},
 	},
 	subtitle: {
 		fontSize: "calc(1rem + 1.5vw)",

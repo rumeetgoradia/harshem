@@ -11,6 +11,9 @@ const useContactInfoStyles = makeStyles((theme) => ({
 		textDecoration: "none",
 		color: theme.palette.text.primary,
 		fontSize: theme.typography.fontSize,
+		"&:first-child": {
+			marginBottom: theme.spacing(1),
+		},
 		[theme.breakpoints.up("md")]: {
 			fontSize: theme.typography.fontSize * 1.25,
 		},
