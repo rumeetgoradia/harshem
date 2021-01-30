@@ -2,7 +2,7 @@ import { fade, makeStyles } from "@material-ui/core/styles"
 
 const useLandingStyles = makeStyles((theme) => ({
 	root: {
-		height: "75vh",
+		height: "65vh",
 		width: "100%",
 		"& .react-parallax-background-children": {
 			width: "100%",

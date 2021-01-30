@@ -1,4 +1,5 @@
-import { OFFICES, SITE_NAME } from "@/constants"
+import { SITE_NAME } from "@/constants"
+import { SUBTITLE } from "@/content"
 import { Box, Container, Typography } from "@material-ui/core"
 import Image from "next/image"
 import { Background, Parallax } from "react-parallax"
@@ -14,7 +15,7 @@ const Landing: React.FC<LandingProps> = ({ imgBase64, imgSrc }) => {
 
 	return (
 		<Parallax
-			strength={400}
+			strength={200}
 			className={classes.root}
 			contentClassName={classes.content}
 		>
@@ -47,7 +48,10 @@ const Landing: React.FC<LandingProps> = ({ imgBase64, imgSrc }) => {
 					<Typography variant="h1" color="primary" className={classes.title}>
 						{SITE_NAME}
 					</Typography>
-					<div>
+					<Typography variant="h2" className={classes.subtitle}>
+						{SUBTITLE}
+					</Typography>
+					{/* <div>
 						{OFFICES.map((office, index) => (
 							<Typography
 								variant="h2"
@@ -57,7 +61,7 @@ const Landing: React.FC<LandingProps> = ({ imgBase64, imgSrc }) => {
 								<span>{office.title}:</span> {office.phone}
 							</Typography>
 						))}
-					</div>
+					</div> */}
 				</Box>
 			</Container>
 		</Parallax>

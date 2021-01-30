@@ -41,7 +41,7 @@ const useNavbarStyles = makeStyles((theme) => ({
 	},
 	drawer: {
 		padding: `${theme.spacing(1) + 84}px 
-				${theme.spacing(6.5)}px ${theme.spacing(2)}px`,
+				${theme.spacing(6.5)}px ${theme.spacing(3)}px`,
 		backgroundColor: theme.palette.primary.main,
 	},
 }))

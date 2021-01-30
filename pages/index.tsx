@@ -1,4 +1,4 @@
-import { Landing } from "@/components/Home"
+import { ContactInfo, Introduction, Landing } from "@/components/Home"
 import { SITE_NAME } from "@/constants"
 import { getBase64 } from "@plaiceholder/base64"
 import { getImage } from "@plaiceholder/next"
@@ -14,7 +14,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ imgBase64, imgSrc }) => {
 		<>
 			<NextSeo titleTemplate="%s" title={SITE_NAME} />
 			<Landing imgBase64={imgBase64} imgSrc={imgSrc} />
-			<div style={{ height: 2000 }} />
+			<ContactInfo />
+			<Introduction />
 		</>
 	)
 }
