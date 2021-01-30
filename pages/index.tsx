@@ -1,21 +1,35 @@
+import { Landing } from "@/components/Home"
 import { SITE_NAME } from "@/constants"
+import { getBase64 } from "@plaiceholder/base64"
+import { getImage } from "@plaiceholder/next"
+import { GetStaticProps } from "next"
 import { NextSeo } from "next-seo"
+interface IndexPageProps {
+	imgBase64: string
+	imgSrc: string
+}
 
-const IndexPage: React.FC = () => {
+const IndexPage: React.FC<IndexPageProps> = ({ imgBase64, imgSrc }) => {
 	return (
 		<>
 			<NextSeo titleTemplate="%s" title={SITE_NAME} />
-			<div style={{ height: 2000 }}>
-				Elit qui ea anim voluptate consectetur non amet.In ullamco ullamco irure
-				deserunt ipsum occaecat commodo do exercitation aliqua ea adipisicing
-				non duis.Excepteur occaecat nulla labore pariatur mollit magna
-				incididunt officia.Aute aliqua magna culpa pariatur tempor ea duis
-				mollit.Ea aute est proident incididunt sint laboris.Qui ex commodo ipsum
-				nulla qui.Exercitation ipsum nostrud eu consequat sint sunt aliquip anim
-				id ea.
-			</div>
+			<Landing imgBase64={imgBase64} imgSrc={imgSrc} />
+			<div style={{ height: 2000 }} />
 		</>
 	)
 }
 
 export default IndexPage
+
+export const getStaticProps: GetStaticProps = async () => {
+	const imgSrc = "/images/landing.jpg"
+	const img = await getImage(imgSrc)
+	const imgBase64 = await getBase64(img)
+
+	return {
+		props: {
+			imgBase64,
+			imgSrc,
+		},
+	}
+}

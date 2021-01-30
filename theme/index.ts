@@ -38,8 +38,8 @@ const theme = createMuiTheme({
 		].join(","),
 	},
 	zIndex: {
-		modal: 10000,
-		appBar: 10001,
+		modal: 9998,
+		appBar: 9999,
 	},
 })
 

@@ -7,13 +7,15 @@ interface NavbarStylesProps {
 const useNavbarStyles = makeStyles((theme) => ({
 	root: {
 		backgroundColor: theme.palette.primary.main,
-		padding: `${theme.spacing(1.5)}px ${theme.spacing(6)}px`,
+		padding: `${theme.spacing(1.5)}px ${theme.spacing(4)}px`,
 		transition: theme.transitions.create([
 			"background-color",
 			"padding",
 			"box-shadow",
 		]),
 		[theme.breakpoints.up("md")]: {
+			backgroundColor: (props: NavbarStylesProps) =>
+				props.isScrolled ? theme.palette.primary.main : "transparent",
 			padding: (props: NavbarStylesProps) =>
 				props.isScrolled
 					? `${theme.spacing(1)}px ${theme.spacing(7.5)}px`
@@ -38,9 +40,8 @@ const useNavbarStyles = makeStyles((theme) => ({
 		},
 	},
 	drawer: {
-		padding: `${theme.spacing(1) + 84}px ${theme.spacing(
-			7.5
-		)}px ${theme.spacing(2)}px`,
+		padding: `${theme.spacing(1) + 84}px 
+				${theme.spacing(6.5)}px ${theme.spacing(2)}px`,
 		backgroundColor: theme.palette.primary.main,
 	},
 }))

@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
 				</Link>
 				<DrawerToggle isOpen={isOpen} toggleDrawer={toggleDrawer} />
 				{isMediumScreen ? (
-					<NavMenu closeDrawer={closeDrawer} />
+					<NavMenu isScrolled={isScrolled} closeDrawer={closeDrawer} />
 				) : (
 					<Drawer
 						open={isOpen}

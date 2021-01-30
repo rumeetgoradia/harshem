@@ -7,12 +7,13 @@ import NavDropdown from "./NavDropdown"
 import useNavMenuStyles from "./NavMenu.styles"
 
 interface NavMenuProps {
+	isScrolled?: boolean
 	closeDrawer: () => void
 }
 
-const NavMenu: React.FC<NavMenuProps> = ({ closeDrawer }) => {
+const NavMenu: React.FC<NavMenuProps> = ({ isScrolled, closeDrawer }) => {
 	const router = useRouter()
-	const classes = useNavMenuStyles()
+	const classes = useNavMenuStyles({ isScrolled })
 	const isMediumScreen = useMediaQuery((theme: Theme) =>
 		theme.breakpoints.up("md")
 	)

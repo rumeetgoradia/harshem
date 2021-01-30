@@ -1,5 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles"
 
+interface NavMenuStylesProps {
+	isScrolled?: boolean
+}
+
 const useNavMenuStyles = makeStyles((theme) => ({
 	root: {
 		flexDirection: "column",
@@ -53,7 +57,11 @@ const useNavMenuStyles = makeStyles((theme) => ({
 		opacity: 1,
 		boxShadow: theme.shadows[2],
 		letterSpacing: 3,
-		transition: theme.transitions.create("transform"),
+		transition: theme.transitions.create([
+			"transform",
+			"background-color",
+			"color",
+		]),
 		"&:hover": {
 			transform: "scale(1.05)",
 		},
@@ -64,6 +72,14 @@ const useNavMenuStyles = makeStyles((theme) => ({
 			width: "auto",
 			padding: `${theme.spacing(1.5)}px ${theme.spacing(2.5)}px`,
 			letterSpacing: 0,
+			backgroundColor: (props: NavMenuStylesProps) =>
+				props.isScrolled
+					? theme.palette.common.white
+					: theme.palette.primary.main,
+			color: (props: NavMenuStylesProps) =>
+				props.isScrolled
+					? theme.palette.primary.main
+					: theme.palette.common.white,
 		},
 	},
 	navItemActive: {

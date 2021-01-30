@@ -55,6 +55,8 @@ const NavDropdown: React.FC<NavDropdown> = ({ navItem, className }) => {
 				anchorEl={anchorEl}
 				open={!!anchorEl}
 				onClose={handleClose}
+				className={classes.menu}
+				style={{ zIndex: 10000 }}
 			>
 				{navItem.dropdownItems?.map((item, index) => (
 					<Link
