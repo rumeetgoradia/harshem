@@ -5,6 +5,7 @@ import {
 	Container,
 	Grid,
 	Link as MuiLink,
+	Typography,
 } from "@material-ui/core"
 import Link from "next/link"
 import useContactInfoStyles from "./ContactInfo.styles"
@@ -17,20 +18,16 @@ const ContactInfo: React.FC = () => {
 			<Container maxWidth="md">
 				<Grid container spacing={2} alignItems="center">
 					<Grid item xs={12} sm={6}>
-						<Box
-							display="flex"
-							flexDirection="column"
-							justifyContent="center"
-							alignContent="center"
-							width="100%"
-						>
-							<MuiLink href={`mailto:${EMAIL}`} className={classes.link}>
+						<MuiLink href={`mailto:${EMAIL}`}>
+							<Typography align="center" className={classes.link}>
 								{EMAIL}
-							</MuiLink>
-							<MuiLink href={`tel:${PHONE}`} className={classes.link}>
+							</Typography>
+						</MuiLink>
+						<MuiLink href={`tel:${PHONE}`}>
+							<Typography align="center" className={classes.link}>
 								{PHONE}
-							</MuiLink>
-						</Box>
+							</Typography>
+						</MuiLink>
 					</Grid>
 
 					<Grid item xs={12} sm={6}>

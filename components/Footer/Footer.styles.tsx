@@ -1,12 +1,18 @@
-import { makeStyles } from "@material-ui/core/styles"
+import { fade, makeStyles } from "@material-ui/core/styles"
 
 const useFooterStyles = makeStyles((theme) => ({
 	root: {
 		padding: `0 ${theme.spacing(4.5)}px`,
-		opacity: 0.75,
+	},
+	header: {
+		width: "100%",
+		justifyContent: "center",
+		[theme.breakpoints.up("md")]: {
+			justifyContent: "flex-start",
+		},
 	},
 	titleContainer: {
-		justifyContent: "center",
+		paddingRight: theme.spacing(3.5),
 		[theme.breakpoints.up("sm")]: {
 			justifyContent: "flex-start",
 		},
@@ -14,18 +20,19 @@ const useFooterStyles = makeStyles((theme) => ({
 	logo: {
 		fill: theme.palette.common.white,
 		width: "auto",
-		marginRight: theme.spacing(2),
-		display: "none",
+		height: 100,
 		[theme.breakpoints.up("sm")]: {
-			display: "block",
-			height: 40,
+			height: 70,
+			marginRight: theme.spacing(1.5),
 		},
 	},
 	title: {
 		fontWeight: 700,
+		display: "none",
 		fontSize: theme.typography.fontSize * 1.25,
 		textAlign: "center",
 		[theme.breakpoints.up("sm")]: {
+			display: "block",
 			fontSize: theme.typography.fontSize * 1.75,
 		},
 		[theme.breakpoints.up("md")]: {
@@ -33,26 +40,16 @@ const useFooterStyles = makeStyles((theme) => ({
 		},
 	},
 	contactContainer: {
-		justifyContent: "center",
-		[theme.breakpoints.up("sm")]: {
-			justifyContent: "flex-start",
+		flexDirection: "column",
+		paddingLeft: theme.spacing(3.5),
+		borderLeft: `1px solid ${fade(theme.palette.primary.main, 0.7)}`,
+		[theme.breakpoints.up("md")]: {
+			flexDirection: "row",
 		},
 	},
-	contactLink: {
-		fontWeight: 500,
-		textAlign: "center",
-		textDecoration: "none",
-		color: theme.palette.common.white,
-		fontSize: theme.typography.fontSize,
-		"&:first-child": {
-			marginBottom: theme.spacing(1),
-		},
-		[theme.breakpoints.up("sm")]: {
-			textAlign: "left",
-		},
-		[theme.breakpoints.up("md")]: {
-			fontSize: theme.typography.fontSize * 1.25,
-		},
+	contactButton: {
+		color: theme.palette.primary.light,
+		height: 51.72,
 	},
 	navLinksWrapper: {
 		[theme.breakpoints.up("md")]: {
@@ -68,9 +65,22 @@ const useFooterStyles = makeStyles((theme) => ({
 	navLink: {
 		fontWeight: 500,
 		textDecoration: "none",
+		opacity: 0.85,
 		color: theme.palette.common.white,
 		fontSize: theme.typography.fontSize,
 		textTransform: "uppercase",
+		borderBottom: "2px solid transparent",
+		paddingBottom: theme.spacing(0.5),
+		transition: theme.transitions.create(["opacity", "border-bottom-color"]),
+		"&:hover, &:focus": {
+			textDecoration: "none",
+			borderBottomColor: theme.palette.common.white,
+			opacity: 1,
+		},
+	},
+	copyright: {
+		fontSize: theme.typography.fontSize * 0.75,
+		opacity: 0.75,
 	},
 }))
 
