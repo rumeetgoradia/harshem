@@ -51,11 +51,6 @@ const useFooterStyles = makeStyles((theme) => ({
 		color: theme.palette.primary.light,
 		height: 51.72,
 	},
-	navLinksWrapper: {
-		[theme.breakpoints.up("md")]: {
-			marginTop: theme.spacing(6.75),
-		},
-	},
 	navLinkContainer: {
 		textAlign: "center",
 		[theme.breakpoints.up("sm")]: {
@@ -79,8 +74,12 @@ const useFooterStyles = makeStyles((theme) => ({
 		},
 	},
 	copyright: {
+		textAlign: "center",
 		fontSize: theme.typography.fontSize * 0.75,
 		opacity: 0.75,
+		[theme.breakpoints.up("sm")]: {
+			textAlign: "left",
+		},
 	},
 }))
 

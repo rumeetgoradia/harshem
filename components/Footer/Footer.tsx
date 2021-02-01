@@ -6,7 +6,7 @@ import {
 	Grid,
 	IconButton,
 	Link as MuiLink,
-	Typography,
+	Typography
 } from "@material-ui/core"
 import Link from "next/link"
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai"
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
 						</Box>
 					</Grid>
 					<Grid item xs={12}>
-						<Typography align="center" className={classes.copyright}>
+						<Typography className={classes.copyright}>
 							© {new Date().getFullYear()} {SITE_NAME}
 						</Typography>
 					</Grid>

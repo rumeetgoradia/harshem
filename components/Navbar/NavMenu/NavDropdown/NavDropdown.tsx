@@ -42,6 +42,7 @@ const NavDropdown: React.FC<NavDropdown> = ({ navItem, className }) => {
 			</MuiLink>
 			<Menu
 				id={`nav-dropdown-${navItem.title}`}
+				disableScrollLock={true}
 				getContentAnchorEl={null}
 				anchorOrigin={{
 					vertical: "bottom",
@@ -55,7 +56,6 @@ const NavDropdown: React.FC<NavDropdown> = ({ navItem, className }) => {
 				anchorEl={anchorEl}
 				open={!!anchorEl}
 				onClose={handleClose}
-				className={classes.menu}
 				style={{ zIndex: 10000 }}
 			>
 				{navItem.dropdownItems?.map((item, index) => (

@@ -1,4 +1,4 @@
-export const SUBTITLE = "Dr. Rita U. Goradia, MDPC"
+export const SUBTITLE = "Dr. Rita Goradia, MD PC"
 
 export const WHO_WE_ARE = [
 	"Harshem Family Practice has been in business since 2000, with the goal of providing high-quality medical care to maintain and improve overall health. We help our patients by giving them an understanding of their health conditions and treatment plan. We have 2 different locations in the state of New Jersey (Rahway and Elizabeth). We are an outpatient medical practice for all primary care, geriatric, adolescent, and a majority of women’s health needs. We accept a majority of health insurance plans and serve patients from a variety of ethnic, racial, and cultural backgrounds as our doctors and staff speak multiple languages.",
