@@ -20,3 +20,17 @@ export interface Office {
 	}
 	googleMaps: `https://goo.gl/maps/${string}`
 }
+
+export interface Service {
+	title: string
+	note?: string
+}
+export interface ServiceGroup {
+	title: string
+	services: Service[]
+}
+
+export interface InsurancePlan {
+	title: string
+	note?: string
+}
