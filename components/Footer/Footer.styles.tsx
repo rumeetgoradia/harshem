@@ -12,7 +12,7 @@ const useFooterStyles = makeStyles((theme) => ({
 		},
 	},
 	titleContainer: {
-		paddingRight: theme.spacing(3.5),
+		paddingRight: theme.spacing(4.25),
 		[theme.breakpoints.up("sm")]: {
 			justifyContent: "flex-start",
 		},
@@ -20,7 +20,7 @@ const useFooterStyles = makeStyles((theme) => ({
 	logo: {
 		fill: theme.palette.common.white,
 		width: "auto",
-		height: 100,
+		height: 90,
 		[theme.breakpoints.up("sm")]: {
 			height: 70,
 			marginRight: theme.spacing(1.5),

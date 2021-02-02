@@ -9,7 +9,7 @@ const ContentContainer: React.FC = ({ children }) => {
 	)
 
 	const addSectionComponent = (child: ReactElement) => {
-		const component = child.props.component || "section"
+		const component = child.props?.component || "section"
 
 		return cloneElement(child, { component })
 	}

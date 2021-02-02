@@ -15,10 +15,3 @@ export interface NavItemDropdown extends NavItemBase {
 }
 
 export type NavItem = NavItemRoute | NavItemDropdown
-
-export interface Office {
-	title: string
-	address: string[]
-	phone: string
-	fax: string
-}

@@ -18,33 +18,50 @@ const ProviderDisplay: React.FC<ProviderDisplayProps> = ({
 	const classes = useProviderDisplayStyles()
 
 	return (
-		<>
-			<Header>{provider.name}</Header>
-			<Grid container spacing={4}>
-				<Grid item xs={12} md={8}>
-					<Typography variant="body1">{provider.bio}</Typography>
-				</Grid>
-				<Grid item xs={12} md={4}>
-					<div className={classes.imageContainer}>
-						<img
-							aria-hidden="true"
-							alt={provider.name}
-							src={imgBase64}
-							className={classes.blurredImage}
-						/>
-						<Image
-							src={imgSrc}
-							layout="fill"
-							alt={provider.name}
-							title={provider.name}
-							quality={30}
-							objectFit="cover"
-							objectPosition="center center"
-						/>
-					</div>
-				</Grid>
+		<Grid container spacing={2}>
+			<Grid item xs={12} className={classes.xsImgGridItem}>
+				<div className={classes.imageContainer}>
+					<img
+						aria-hidden="true"
+						alt={provider.name}
+						src={imgBase64}
+						className={classes.blurredImage}
+					/>
+					<Image
+						src={imgSrc}
+						layout="fill"
+						alt={provider.name}
+						title={provider.name}
+						quality={30}
+						objectFit="cover"
+						objectPosition="center center"
+					/>
+				</div>
 			</Grid>
-		</>
+			<Grid item xs={12} md={8}>
+				<Header>{provider.name}</Header>
+				<Typography variant="body1">{provider.bio}</Typography>
+			</Grid>
+			<Grid item xs={12} md={4} className={classes.mdImgGridItem}>
+				<div className={classes.imageContainer}>
+					<img
+						aria-hidden="true"
+						alt={provider.name}
+						src={imgBase64}
+						className={classes.blurredImage}
+					/>
+					<Image
+						src={imgSrc}
+						layout="fill"
+						alt={provider.name}
+						title={provider.name}
+						quality={30}
+						objectFit="cover"
+						objectPosition="center center"
+					/>
+				</div>
+			</Grid>
+		</Grid>
 	)
 }
 

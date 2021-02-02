@@ -4,6 +4,7 @@ const useHeroStyles = makeStyles((theme) => ({
 	root: {
 		height: "35vh",
 		width: "100%",
+		background: theme.palette.primary.main,
 		"& .react-parallax-background-children": {
 			width: "100%",
 			height: "100%",
@@ -26,7 +27,7 @@ const useHeroStyles = makeStyles((theme) => ({
 		width: "100%",
 		height: "100%",
 		textShadow: `2px 2px 6px ${fade(theme.palette.common.black, 0.4)}`,
-		backgroundColor: fade(theme.palette.common.black, 0.35),
+		backgroundColor: fade(theme.palette.common.black, 0.45),
 		padding: `84px ${theme.spacing(2.5)}px 42px`,
 		[theme.breakpoints.up("md")]: {
 			padding: `0 ${theme.spacing(2.5)}px`,

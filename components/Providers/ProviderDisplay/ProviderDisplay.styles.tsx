@@ -1,6 +1,18 @@
 import { makeStyles } from "@material-ui/core/styles"
 
 const useProviderDisplayStyles = makeStyles((theme) => ({
+	xsImgGridItem: {
+		display: "block",
+		[theme.breakpoints.up("md")]: {
+			display: "none",
+		},
+	},
+	mdImgGridItem: {
+		display: "none",
+		[theme.breakpoints.up("md")]: {
+			display: "block",
+		},
+	},
 	imageContainer: {
 		position: "relative",
 		overflow: "hidden",
