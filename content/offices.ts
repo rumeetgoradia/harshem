@@ -5,7 +5,7 @@ export const OFFICES: Office[] = [
 		title: "Rahway",
 		address: ["1003 St. Georges Ave.", "Rahway, NJ 07065"],
 		phone: "(732) 388-3006",
-		fax: "(732) 388-3006",
+		fax: "(732) 388-9878",
 		hours: {
 			mon: "9:00am — 10:00pm",
 			tue: "9:00am — 10:00pm",
@@ -19,9 +19,9 @@ export const OFFICES: Office[] = [
 	},
 	{
 		title: "Elizabeth",
-		address: ["700 N. Broad St.", "Elizabeth, NJ 07208"],
+		address: ["700 N. Broad St.", "Suite 102", "Elizabeth, NJ 07208"],
 		phone: "(908) 469-1500",
-		fax: "(908) 469-1500",
+		fax: "(908) 469-1501",
 		hours: {
 			mon: "9:00am — 10:00pm",
 			tue: "9:00am — 10:00pm",
