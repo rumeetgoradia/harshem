@@ -24,6 +24,7 @@ const Hero: React.FC<HeroProps> = ({ title }) => {
 					layout="fill"
 					objectFit="cover"
 					objectPosition="center center"
+					quality={30}
 					priority
 				/>
 			</Background>

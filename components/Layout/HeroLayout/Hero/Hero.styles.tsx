@@ -40,7 +40,7 @@ const useHeroStyles = makeStyles((theme) => ({
 		color: theme.palette.common.white,
 		fontWeight: 500,
 		textTransform: "uppercase",
-		fontSize: theme.typography.fontSize * 3,
+		fontSize: theme.typography.fontSize * 2.5,
 		[theme.breakpoints.up("sm")]: {
 			fontSize: theme.typography.fontSize * 4,
 		},

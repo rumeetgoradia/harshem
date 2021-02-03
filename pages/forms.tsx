@@ -1,5 +1,6 @@
 import { HeroLayout } from "@/components/Layout"
 import { Content, Header, Hyperlink } from "@/components/Typography"
+import { PHONE } from "@/constants"
 import { Button, Grid, Typography } from "@material-ui/core"
 import Link from "next/link"
 
@@ -16,7 +17,8 @@ const FormsPage: React.FC = () => {
 						<Link href="/appointment" passHref>
 							<Hyperlink>appointments page</Hyperlink>
 						</Link>{" "}
-						or give us a call at <Hyperlink>(732) 388-3006</Hyperlink>.
+						or give us a call at{" "}
+						<Hyperlink href={`tel:${PHONE}`}>{PHONE}</Hyperlink>.
 					</Typography>
 					<Button
 						href="/Harshem First-Time Patient Registration"

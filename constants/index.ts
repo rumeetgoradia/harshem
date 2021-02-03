@@ -1,3 +1,4 @@
+export * from "./appointment"
 export * from "./contact"
 export * from "./interfaces"
 export * from "./navigation"

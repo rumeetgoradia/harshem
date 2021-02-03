@@ -15,3 +15,18 @@ export interface NavItemDropdown extends NavItemBase {
 }
 
 export type NavItem = NavItemRoute | NavItemDropdown
+
+export interface AppointmentFormInputs {
+	firstName: string
+	lastName: string
+	dateOfBirth: string
+	phone: string
+	email: string
+	officePreference: string
+	providerPreference: string
+	newPatient: boolean
+	appointmentType: string
+	firstDatePreference: string
+	secondDatePreference: "" | string
+	thirdDatePreference: "" | string
+}
