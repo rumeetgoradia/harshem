@@ -1,7 +1,7 @@
 export interface Provider {
 	name: string
 	bio: string
-	imageId: `${string}.png` | `${string}.jpg`
+	imageId: string
 }
 
 export interface Office {
@@ -18,7 +18,7 @@ export interface Office {
 		sat: string
 		sun: string
 	}
-	googleMaps: `https://goo.gl/maps/${string}`
+	googleMaps: string
 }
 
 export interface Service {
