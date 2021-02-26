@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
 					</Grid>
 					<Grid item xs={12}>
 						<Typography className={classes.copyright}>
-							© {new Date().getFullYear()}
+							{`© ${new Date().getFullYear()} ${SITE_NAME}`}
 						</Typography>
 					</Grid>
 				</Grid>
