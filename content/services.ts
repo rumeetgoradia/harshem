@@ -71,8 +71,8 @@ export const SERVICES: ServiceGroup[] = [
 		title: "Therapeutic Injections",
 		services: [
 			{ title: "B12 injection" },
-			{ title: "Benadryl injection" },
-			{ title: "Solu-medrol injection" },
+			{ title: "Antibiotic injection" },
+			{ title: "Depo-medrol injection" },
 		],
 	},
 	{
