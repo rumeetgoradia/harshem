@@ -14,9 +14,7 @@ const MasonryGridItem: React.FC<MasonryGridItemProps> = ({ title, note }) => {
 			<Typography variant="h5" className={classes.title}>
 				{title}
 			</Typography>
-			<Typography variant="caption" className={classes.note}>
-				{note}
-			</Typography>
+			{note && <Typography className={classes.note}>{note}</Typography>}
 		</div>
 	)
 }

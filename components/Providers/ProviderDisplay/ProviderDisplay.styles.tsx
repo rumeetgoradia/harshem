@@ -19,9 +19,8 @@ const useProviderDisplayStyles = makeStyles((theme) => ({
 		borderRadius: "50%",
 		border: `8px solid ${theme.palette.text.primary}`,
 		opacity: 0.85,
-		width: "100%",
-		maxWidth: 350,
-		aspectRatio: "1 / 1",
+		width: 278,
+		height: 278,
 		margin: "0 auto",
 		transition: theme.transitions.create(["border-color", "opacity"]),
 		"&:hover": {

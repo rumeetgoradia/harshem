@@ -20,7 +20,11 @@ const useMasonryGridItemStyles = makeStyles((theme) => ({
 		fontSize: theme.typography.fontSize * 1.25,
 	},
 	note: {
+		marginTop: theme.spacing(0.75),
+		fontSize: theme.typography.fontSize,
 		fontStyle: "italic",
+		fontWeight: 300,
+		lineHeight: 1,
 	},
 }))
 

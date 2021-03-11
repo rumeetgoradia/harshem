@@ -35,7 +35,7 @@ const AppointmentForm: React.FC = () => {
 	const onSubmit = (data: AppointmentFormInputs) => {
 		axios({
 			method: "POST",
-			// url: "https://formspree.io/f/xjvpjelz",
+			url: process.env.NEXT_PUBLIC_APPOINTMENT_FORM_URL,
 			data,
 		})
 			.then(() => {
@@ -44,9 +44,8 @@ const AppointmentForm: React.FC = () => {
 			})
 			.catch(() => {
 				alert(
-					"There was an issue sending your message. Please try again later!"
+					"There was an issue sending your appointment request. Please try again later!"
 				)
-				console.log(data)
 				setIsSubmitSuccessful(false)
 			})
 	}

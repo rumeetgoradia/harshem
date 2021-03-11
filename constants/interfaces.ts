@@ -30,3 +30,11 @@ export interface AppointmentFormInputs {
 	secondDatePreference: "" | string
 	thirdDatePreference: "" | string
 }
+
+export interface ContactFormInputs {
+	firstName: string
+	lastName: string
+	email: string
+	phone: string
+	message: string
+}

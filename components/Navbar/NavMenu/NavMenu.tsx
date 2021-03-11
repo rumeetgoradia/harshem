@@ -51,6 +51,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ isScrolled, closeDrawer }) => {
 								(item) => router.pathname === item.path
 							) && classes.navItemActive
 						)}
+						key={`nav-item-${navItemIndex}`}
 					/>
 				) : (
 					navItem.dropdownItems?.map((dropdownItem, dropdownIndex) => (
