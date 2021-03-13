@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
 		>
 			<Toolbar className={classes.toolbar}>
 				<Link href="/">
-					<Logo className={classes.logo} />
+					<Logo onClick={closeDrawer} className={classes.logo} />
 				</Link>
 				<DrawerToggle isOpen={isOpen} toggleDrawer={toggleDrawer} />
 				{isMediumScreen ? (
