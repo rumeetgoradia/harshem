@@ -65,7 +65,7 @@ const AppointmentForm: React.FC = () => {
 		<form onSubmit={handleSubmit(onSubmit)} name="appointment" method="POST">
 			<input type="hidden" name="form-name" value="appointment" />
 			<Grid container spacing={3}>
-				<Grid item xs={12} md={4}>
+				<Grid item xs={12} sm={4}>
 					<FormTextField
 						inputRef={register}
 						name="firstName"
@@ -74,7 +74,7 @@ const AppointmentForm: React.FC = () => {
 						schemaError={errors.firstName}
 					/>
 				</Grid>
-				<Grid item xs={12} md={4}>
+				<Grid item xs={12} sm={4}>
 					<FormTextField
 						inputRef={register}
 						name="lastName"
@@ -83,7 +83,7 @@ const AppointmentForm: React.FC = () => {
 						schemaError={errors.lastName}
 					/>
 				</Grid>
-				<Grid item xs={12} md={4}>
+				<Grid item xs={12} sm={4}>
 					<FormDatePicker
 						control={control}
 						label="Date of Birth"
@@ -92,7 +92,7 @@ const AppointmentForm: React.FC = () => {
 						schemaError={errors.dateOfBirth}
 					/>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} sm={6}>
 					<FormTextField
 						inputRef={register}
 						name="email"
@@ -100,7 +100,7 @@ const AppointmentForm: React.FC = () => {
 						schemaError={errors.email}
 					/>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} sm={6}>
 					<FormTextField
 						inputRef={register}
 						name="phone"
@@ -109,7 +109,7 @@ const AppointmentForm: React.FC = () => {
 						schemaError={errors.phone}
 					/>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} sm={6}>
 					<FormRadioGroup
 						control={control}
 						name="newPatient"
@@ -122,7 +122,7 @@ const AppointmentForm: React.FC = () => {
 						schemaError={errors.newPatient}
 					/>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} sm={6}>
 					<FormSelect
 						control={control}
 						label="Appointment Type"
@@ -132,7 +132,7 @@ const AppointmentForm: React.FC = () => {
 						choices={APPOINTMENT_CHOICES.appointmentType}
 					/>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} sm={6}>
 					<FormSelect
 						control={control}
 						label="Office Preference"
@@ -141,7 +141,7 @@ const AppointmentForm: React.FC = () => {
 						choices={APPOINTMENT_CHOICES.office}
 					/>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item xs={12} sm={6}>
 					<FormSelect
 						control={control}
 						label="Provider Preference"

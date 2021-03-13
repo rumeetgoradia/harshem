@@ -40,34 +40,37 @@ const FormRadioGroup: React.FC<FormRadioGroupProps> = ({
 					component="fieldset"
 					error={!!schemaError}
 					variant="outlined"
+					fullWidth
 				>
-					<FormLabel
-						component="legend"
-						id={`${name}-label`}
-						className={classes.label}
-						required={required}
-					>
-						{label}
-					</FormLabel>
-					<RadioGroup
-						aria-label={label}
-						name={name}
-						id={name}
-						value={props.value}
-						onChange={(_props) => props.onChange(_props.target.value)}
-						onBlur={() => props.onBlur}
-						className={classes.radioGroup}
-					>
-						{options.map((option, index) => (
-							<FormControlLabel
-								value={option.value}
-								control={<Radio color="primary" />}
-								label={option.label}
-								classes={{ label: classes.radioLabel, root: classes.radio }}
-								key={`${name}-radio-option-${index}`}
-							/>
-						))}
-					</RadioGroup>
+					<div className={classes.root}>
+						<FormLabel
+							component="legend"
+							id={`${name}-label`}
+							className={classes.label}
+							required={required}
+						>
+							{label}
+						</FormLabel>
+						<RadioGroup
+							aria-label={label}
+							name={name}
+							id={name}
+							value={props.value}
+							onChange={(_props) => props.onChange(_props.target.value)}
+							onBlur={() => props.onBlur}
+							className={classes.radioGroup}
+						>
+							{options.map((option, index) => (
+								<FormControlLabel
+									value={option.value}
+									control={<Radio color="primary" />}
+									label={option.label}
+									classes={{ label: classes.radioLabel, root: classes.radio }}
+									key={`${name}-radio-option-${index}`}
+								/>
+							))}
+						</RadioGroup>
+					</div>
 					<FormHelperText>{schemaError?.message}</FormHelperText>
 				</FormControl>
 			)}

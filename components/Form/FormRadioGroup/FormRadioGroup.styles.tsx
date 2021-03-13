@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles"
 
 const useFormRadioGroupStyles = makeStyles((theme) => ({
+	root: {
+		paddingLeft: theme.spacing(1),
+	},
 	label: {
 		textTransform: "uppercase",
 		fontSize: theme.typography.fontSize,

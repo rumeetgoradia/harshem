@@ -45,11 +45,11 @@ const Introduction: React.FC = () => {
 								<Hyperlink>our full range of services</Hyperlink>
 							</Link>
 							, and{" "}
-							<Link href="/services" passHref>
+							<Link href="/insurance" passHref>
 								<Hyperlink>our accepted insurance plans</Hyperlink>
 							</Link>
 							.{" "}
-							<Link href="/services" passHref>
+							<Link href="/appointment" passHref>
 								<Hyperlink>Make an appointment today!</Hyperlink>
 							</Link>
 						</Typography>
