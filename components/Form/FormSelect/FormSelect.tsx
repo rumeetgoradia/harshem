@@ -50,6 +50,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
 							props.onChange(_props.target.value)
 						}}
 						onBlur={() => props.onBlur()}
+						MenuProps={{ disableScrollLock: true }}
 					>
 						<MenuItem value="">None</MenuItem>
 						{choices.map((choice, index) => (
