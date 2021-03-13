@@ -21,7 +21,7 @@ const FormsPage: React.FC = () => {
 						<Hyperlink href={`tel:${PHONE}`}>{PHONE}</Hyperlink>.
 					</Typography>
 					<Button
-						href="/Harshem First-Time Patient Registration"
+						href="/Harshem Patient Registration.pdf"
 						target="_blank"
 						rel="noopener"
 						variant="contained"

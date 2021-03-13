@@ -1,6 +1,7 @@
 import { AppointmentForm } from "@/components/Appointment"
 import { HeroLayout } from "@/components/Layout"
 import { Content, Header } from "@/components/Typography"
+import { APPOINTMENT_REQUEST_INTRO } from "@/content"
 import { Grid, Typography } from "@material-ui/core"
 
 const AppointmentPage: React.FC = () => {
@@ -9,14 +10,14 @@ const AppointmentPage: React.FC = () => {
 			<Grid item xs={12}>
 				<Header>Request an Appointment</Header>
 				<Content>
-					<Typography variant="body1">
-						Walk-ins are welcome! If you need an urgent, same-day, or next-day
-						appointment, please call the appropriate office location. We look
-						forward to seeing you soon!
-					</Typography>
-					<Typography variant="body1">
-						Use this form for non-urgent appointments only.
-					</Typography>
+					{APPOINTMENT_REQUEST_INTRO.map((paragraph, index) => (
+						<Typography
+							variant="body1"
+							key={`appointment-request-intro-paragraph-${index}`}
+						>
+							{paragraph}
+						</Typography>
+					))}
 					<AppointmentForm />
 				</Content>
 			</Grid>
