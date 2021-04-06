@@ -32,6 +32,8 @@ const AppointmentForm: React.FC = () => {
 	const { isValid, isSubmitting } = formState
 	const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false)
 
+	useEffect(() => console.log(isSubmitting), [isSubmitting])
+
 	const onSubmit = (data: AppointmentFormInputs) => {
 		axios({
 			method: "POST",
@@ -181,7 +183,7 @@ const AppointmentForm: React.FC = () => {
 				<Grid item xs={12}>
 					<Button
 						variant="outlined"
-						disabled={!isValid}
+						disabled={!isValid || isSubmitting}
 						color="primary"
 						type="submit"
 						fullWidth
@@ -190,7 +192,8 @@ const AppointmentForm: React.FC = () => {
 					</Button>
 					{isSubmitSuccessful && (
 						<FormHelperText className={classes.success}>
-							Message sent successfully!
+							Appointment request sent successfully! We will reach out to you
+							soon.
 						</FormHelperText>
 					)}
 				</Grid>

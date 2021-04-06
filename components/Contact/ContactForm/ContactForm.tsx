@@ -103,8 +103,8 @@ const ContactForm: React.FC = () => {
 				<Grid item xs={12}>
 					<Button
 						variant="outlined"
-						color="secondary"
-						disabled={!isValid}
+						color="primary"
+						disabled={!isValid || isSubmitting}
 						type="submit"
 						fullWidth
 					>
@@ -112,7 +112,7 @@ const ContactForm: React.FC = () => {
 					</Button>
 					{isSubmitSuccessful && (
 						<FormHelperText className={classes.success}>
-							Message sent successfully!
+							Message sent successfully! We will reach out to you soon.
 						</FormHelperText>
 					)}
 				</Grid>
