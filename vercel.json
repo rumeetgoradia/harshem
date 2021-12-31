@@ -1,27 +1,15 @@
 {
-	"cleanUrls": true,
-	"trailingSlash": false,
-	"headers": [
-	  {
-		"source": "/fonts/inter.woff2",
-		"headers": [
-		  {
-			"key": "Cache-Control",
-			"value": "public, max-age=31536000, immutable"
-		  }
-		]
-	  },
-	  {
-		"source": "/images/hero.jpg",
-		"headers": [
-		  {
-			"key": "Cache-Control",
-			"value": "public, max-age=31536000, immutable"
-		  }
-		]
-	  }
-	],
-	"redirects": [
-	  
-	]
-  }
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "/fonts/SplineSans.woff2",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ]
+}
