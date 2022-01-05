@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react"
 import { StyleFunctionProps } from "@chakra-ui/theme-tools"
+import { components } from "./components/index"
 
 const fonts = [
 	"Spline Sans",
@@ -37,10 +38,19 @@ const theme = extendTheme({
 		heading: fonts,
 		body: fonts,
 	},
-	config: {
-		initialColorMode: "light",
-		useSystemColorMode: false,
+	textStyles: {
+		header: {
+			fontSize: "3xl",
+			fontWeight: 500,
+			mb: 4,
+		},
+		paragraph: {
+			fontSize: "lg",
+			fontWeight: 300,
+			lineHeight: 1.6,
+		},
 	},
+	components,
 })
 
 export default theme

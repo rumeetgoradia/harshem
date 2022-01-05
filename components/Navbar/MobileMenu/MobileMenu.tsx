@@ -30,7 +30,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 		<>
 			<Flex
 				w="full"
-				p={4}
+				py={4}
 				justify="space-between"
 				align="center"
 				display={{ base: "flex", md: "none" }}

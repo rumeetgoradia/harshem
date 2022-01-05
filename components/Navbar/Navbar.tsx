@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
 				bg="brand"
 				display={{ base: "none", md: "flex" }}
 			>
-				<Container maxW="container.lg" color="white">
+				<Container maxW="container.lg" color="white" px={8}>
 					<Flex w="full" justify="space-between" align="center">
 						<Flex align="center">
 							<Flex
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
 				</Container>
 			</Box>
 			<Box w="full" zIndex="banner" top={0} bg="brand" position="sticky">
-				<Container maxW="container.lg" color="white">
+				<Container maxW="container.lg" color="white" px={8}>
 					<Flex as="header" justify="center" align="center">
 						<DesktopMenu activePath={router.pathname} />
 						<MobileMenu activePath={router.pathname} />
