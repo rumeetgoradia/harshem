@@ -28,6 +28,9 @@
       "@images/*": [
         "public/images/*"
       ],
+      "@offices": [
+        "offices/index.ts"
+      ],
       "@theme": [
         "theme/index.ts"
       ],
