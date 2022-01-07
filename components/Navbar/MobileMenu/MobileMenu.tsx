@@ -85,6 +85,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 					<Flex w="full" justifyContent="flex-end">
 						<IconButton
 							icon={<VscChromeClose />}
+							onClick={onClose}
 							aria-label="Close navigation menu"
 							variant="unstyled"
 							fontSize="2xl"
@@ -93,7 +94,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 							justifyContent="center"
 							alignItems="center"
 							p={0}
-							onClick={onClose}
+							_focus={{}}
 						/>
 					</Flex>
 

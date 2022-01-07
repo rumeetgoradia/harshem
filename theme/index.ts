@@ -41,7 +41,7 @@ const theme = extendTheme({
 	textStyles: {
 		header: {
 			fontSize: "3xl",
-			fontWeight: 500,
+			fontWeight: 400,
 			mb: 4,
 		},
 		paragraph: {

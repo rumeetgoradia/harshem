@@ -1,6 +1,6 @@
 import { Box, Container, Flex, HStack, Link, Text } from "@chakra-ui/react"
 import { Logo } from "@components/Logo"
-import { OFFICES } from "@offices"
+import { OFFICES } from "@content"
 import { useRouter } from "next/router"
 import { DesktopMenu } from "./DesktopMenu"
 import { MobileMenu } from "./MobileMenu"

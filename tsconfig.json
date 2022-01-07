@@ -25,11 +25,11 @@
       "@constants": [
         "constants/index.ts"
       ],
+      "@content": [
+        "content/index.ts"
+      ],
       "@images/*": [
         "public/images/*"
-      ],
-      "@offices": [
-        "offices/index.ts"
       ],
       "@theme": [
         "theme/index.ts"

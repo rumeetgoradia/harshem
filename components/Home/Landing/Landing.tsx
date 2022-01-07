@@ -31,6 +31,7 @@ const Landing: React.FC<LandingProps> = ({}) => {
 							layout="fill"
 							objectPosition="center center"
 							objectFit="cover"
+							placeholder="blur"
 						/>
 					</Box>
 					<Box

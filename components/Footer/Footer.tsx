@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react"
 import { Logo } from "@components/Logo"
 import { NAV_ITEMS, SITE_NAME } from "@constants"
-import { OFFICES } from "@offices"
+import { OFFICES } from "@content"
 import { createTransition } from "@utils"
 import NextLink from "next/link"
 
@@ -43,6 +43,8 @@ const Footer: React.FC<FooterProps> = ({}) => {
 											</Text>
 										))}
 										<Link
+											href={`tel:${phone}`}
+											as="span"
 											transition={createTransition("color")}
 											_hover={{ color: "brand" }}
 											_focus={{}}
