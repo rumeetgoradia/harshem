@@ -9,7 +9,7 @@ const ProvidersPage: NextPage = () => {
 		<Layout title="Providers">
 			<Grid
 				templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
-				gap={10}
+				gap={{ base: 6, md: 10 }}
 				w="full"
 			>
 				{PROVIDERS.map((provider) => (

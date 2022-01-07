@@ -1,6 +1,6 @@
 import { DAYS } from "@constants"
 
-type Office = {
+export type Office = {
 	title: string
 	address: string[]
 	phone: string
