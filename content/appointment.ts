@@ -25,8 +25,6 @@ export type DateStepFields = {
 	firstTimePreference: string
 	secondDatePreference?: string
 	secondTimePreference?: string
-	thirdDatePreference?: string
-	thirdTimePreference?: string
 }
 
 export type SubmitStepFields = {

@@ -9,6 +9,7 @@ import {
 import { useState } from "react"
 import { AppointmentStep } from "./AppointmentStep"
 import { DateStep } from "./DateStep"
+import { FinishStep } from "./FinishStep"
 import { PatientStep } from "./PatientStep"
 import { SubmitStep } from "./SubmitStep"
 
@@ -61,7 +62,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({}) => {
 				return <SubmitStep {...appointmentFormStepProps} />
 			}
 			case 4: {
-				return <>finished</>
+				return <FinishStep />
 			}
 		}
 	}

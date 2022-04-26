@@ -16,10 +16,10 @@ import { BsArrowLeft } from "react-icons/bs"
 const SubmitStep: React.FC<AppointmentFormStepProps> = ({
 	appointmentFormData,
 	decrementFormStep,
+	incrementFormStep,
 	updateAppointmentFormData,
 }) => {
 	const {
-		register,
 		handleSubmit,
 		formState: { errors, isValid, isSubmitting },
 		control,
@@ -32,11 +32,11 @@ const SubmitStep: React.FC<AppointmentFormStepProps> = ({
 		},
 	})
 
-	const onSubmit = (values: AppointmentStepFields) => {
-		console.log(values)
-
+	const onSubmit = async (values: AppointmentStepFields) => {
 		if (isValid) {
 			updateAppointmentFormData(values)
+			// TODO send email
+			incrementFormStep()
 		}
 	}
 	const goToPrevFormStep = (values: SubmitStepFields) => {

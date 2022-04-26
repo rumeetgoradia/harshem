@@ -46,7 +46,7 @@ const PatientStep: React.FC<AppointmentFormStepProps> = ({
 	return (
 		<Box as="form" onSubmit={handleSubmit(onSubmit)} w="full">
 			<Grid w="full" templateColumns="repeat(6, 1fr)" gap={6}>
-				<GridItem colSpan={2}>
+				<GridItem colSpan={{ base: 6, sm: 3, md: 2 }}>
 					<FormControl id="firstName" isInvalid={!!errors.firstName} isRequired>
 						<FormLabel>First Name</FormLabel>
 						<Input
@@ -58,7 +58,7 @@ const PatientStep: React.FC<AppointmentFormStepProps> = ({
 						<FormErrorMessage>{errors.firstName?.message}</FormErrorMessage>
 					</FormControl>
 				</GridItem>
-				<GridItem colSpan={2}>
+				<GridItem colSpan={{ base: 6, sm: 3, md: 2 }}>
 					<FormControl id="lastName" isInvalid={!!errors.lastName} isRequired>
 						<FormLabel>Last Name</FormLabel>
 						<Input
@@ -70,7 +70,7 @@ const PatientStep: React.FC<AppointmentFormStepProps> = ({
 						<FormErrorMessage>{errors.lastName?.message}</FormErrorMessage>
 					</FormControl>
 				</GridItem>
-				<GridItem colSpan={2}>
+				<GridItem colSpan={{ base: 6, md: 2 }}>
 					<FormControl
 						id="dateOfBirth"
 						isInvalid={!!errors.dateOfBirth}
@@ -91,7 +91,7 @@ const PatientStep: React.FC<AppointmentFormStepProps> = ({
 						<FormErrorMessage>{errors.dateOfBirth?.message}</FormErrorMessage>
 					</FormControl>
 				</GridItem>
-				<GridItem colSpan={3}>
+				<GridItem colSpan={{ base: 6, sm: 3 }}>
 					<FormControl id="phone" isInvalid={!!errors.phone} isRequired>
 						<FormLabel>Phone Number</FormLabel>
 						<Input
@@ -108,7 +108,7 @@ const PatientStep: React.FC<AppointmentFormStepProps> = ({
 						<FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
 					</FormControl>
 				</GridItem>
-				<GridItem colSpan={3}>
+				<GridItem colSpan={{ base: 6, sm: 3 }}>
 					<FormControl id="email" isInvalid={!!errors.email} isRequired>
 						<FormLabel>Email Address</FormLabel>
 						<Input

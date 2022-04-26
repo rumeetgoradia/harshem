@@ -57,7 +57,7 @@ const AppointmentStep: React.FC<AppointmentFormStepProps> = ({
 	return (
 		<Box as="form" onSubmit={handleSubmit(onSubmit)} w="full">
 			<Grid w="full" templateColumns="repeat(6, 1fr)" gap={6}>
-				<GridItem colSpan={2}>
+				<GridItem colSpan={{ base: 6, md: 2 }}>
 					<FormControl
 						id="officePreference"
 						isInvalid={!!errors.officePreference}
@@ -82,7 +82,7 @@ const AppointmentStep: React.FC<AppointmentFormStepProps> = ({
 						</FormErrorMessage>
 					</FormControl>
 				</GridItem>
-				<GridItem colSpan={2}>
+				<GridItem colSpan={{ base: 6, md: 2 }}>
 					<FormControl
 						id="providerPreference"
 						isInvalid={!!errors.providerPreference}
@@ -108,7 +108,7 @@ const AppointmentStep: React.FC<AppointmentFormStepProps> = ({
 						</FormErrorMessage>
 					</FormControl>
 				</GridItem>
-				<GridItem colSpan={2}>
+				<GridItem colSpan={{ base: 6, md: 2 }}>
 					<FormControl
 						id="appointmentType"
 						isInvalid={!!errors.appointmentType}

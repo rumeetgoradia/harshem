@@ -83,7 +83,6 @@ const DateStep: React.FC<AppointmentFormStepProps> = ({
 		const calculatedFirstTimeLimits = getOpenCloseHours(
 			watchFirstDatePreference
 		)
-		console.log(calculatedFirstTimeLimits)
 		setFirstTimeLimits(calculatedFirstTimeLimits)
 	}, [watchFirstDatePreference])
 
@@ -111,7 +110,7 @@ const DateStep: React.FC<AppointmentFormStepProps> = ({
 	return (
 		<Box as="form" onSubmit={handleSubmit(onSubmit)} w="full">
 			<Grid w="full" templateColumns="repeat(6, 1fr)" gap={6}>
-				<GridItem colSpan={3}>
+				<GridItem colSpan={{ base: 6, md: 3 }}>
 					<VStack spacing={6}>
 						<FormControl
 							id="firstDatePreference"
@@ -205,7 +204,7 @@ const DateStep: React.FC<AppointmentFormStepProps> = ({
 						</FormControl>
 					</VStack>
 				</GridItem>
-				<GridItem colSpan={3}>
+				<GridItem colSpan={{ base: 6, md: 3 }}>
 					<VStack spacing={6}>
 						<FormControl
 							id="secondDatePreference"
