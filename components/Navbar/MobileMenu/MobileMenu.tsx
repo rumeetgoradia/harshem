@@ -76,7 +76,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activePath }) => {
 			>
 				<DrawerOverlay display={{ base: "block", md: "none" }} />
 				<DrawerContent
-					bg="brand"
+					bg="brand.700"
 					color="white"
 					py={4}
 					px={8}

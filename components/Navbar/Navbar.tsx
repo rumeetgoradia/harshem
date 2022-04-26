@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
 		<>
 			<Box
 				pt={{ md: 4, lg: 8 }}
-				bg="brand"
+				bg="brand.700"
 				display={{ base: "none", md: "flex" }}
 			>
 				<Container maxW="container.lg" color="white" px={8}>
@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
 								bg="white"
 								mr={4}
 							>
-								<Logo h="full" w="auto" fill="brand" />
+								<Logo h="full" w="auto" fill="brand.700" />
 							</Flex>
 							<Text
 								as="h6"
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
 					</Flex>
 				</Container>
 			</Box>
-			<Box w="full" zIndex="banner" top={0} bg="brand" position="sticky">
+			<Box w="full" zIndex="banner" top={0} bg="brand.700" position="sticky">
 				<Container maxW="container.lg" color="white" px={8}>
 					<Flex as="header" justify="center" align="center">
 						<DesktopMenu activePath={router.pathname} />

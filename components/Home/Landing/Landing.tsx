@@ -48,7 +48,7 @@ const Landing: React.FC<LandingProps> = ({}) => {
 						<Text
 							as="h1"
 							fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
-							color="brand"
+							color="brand.700"
 							fontWeight={700}
 							lineHeight={1}
 							mb={2}

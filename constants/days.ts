@@ -1,11 +1,11 @@
 export const DAYS = [
+	"Sunday",
 	"Monday",
 	"Tuesday",
 	"Wednesday",
 	"Thursday",
 	"Friday",
 	"Saturday",
-	"Sunday",
 ] as const
 
 export type Day = typeof DAYS[number]

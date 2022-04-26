@@ -22,28 +22,28 @@ export const PRIMARY_OFFICE: Office = {
 	fax: "(732) 388-9878",
 	hours: {
 		Monday: {
-			open: "9:00am",
-			close: "2:00pm",
+			open: "09:00",
+			close: "14:00",
 		},
 		Tuesday: {
-			open: "3:00pm",
-			close: "7:00pm",
+			open: "15:00",
+			close: "19:00",
 		},
 		Wednesday: {
-			open: "9:00am",
-			close: "2:00pm",
+			open: "09:00",
+			close: "14:00",
 		},
 		Thursday: {
-			open: "9:00am",
-			close: "2:00pm",
+			open: "09:00",
+			close: "14:00",
 		},
 		Friday: {
-			open: "3:00pm",
-			close: "7:00pm",
+			open: "15:00",
+			close: "19:00",
 		},
 		Saturday: {
-			open: "8:30am",
-			close: "1:00pm",
+			open: "08:30",
+			close: "13:00",
 		},
 		Sunday: null,
 	},
@@ -58,24 +58,24 @@ export const OFFICES: Office[] = [PRIMARY_OFFICE].concat([
 		fax: "(908) 469-1501",
 		hours: {
 			Monday: {
-				open: "10:00am",
-				close: "2:00pm",
+				open: "10:00",
+				close: "14:00",
 			},
 			Tuesday: {
-				open: "11:00pm",
-				close: "3:00pm",
+				open: "11:00",
+				close: "15:00",
 			},
 			Wednesday: {
-				open: "10:00am",
-				close: "2:00pm",
+				open: "10:00",
+				close: "14:00",
 			},
 			Thursday: {
-				open: "10:00am",
-				close: "2:00pm",
+				open: "10:00",
+				close: "14:00",
 			},
 			Friday: {
-				open: "10:00am",
-				close: "2:00pm",
+				open: "10:00",
+				close: "14:00",
 			},
 			Saturday: null,
 			Sunday: null,

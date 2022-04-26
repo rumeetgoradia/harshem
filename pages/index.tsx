@@ -37,19 +37,19 @@ const HomePage: NextPage = () => {
 						able to provide effective translation for several commonly spoken
 						languages. We welcome you to explore our website to learn more about{" "}
 						<NextLink href="/providers" passHref>
-							<Link color="brand" title="Providers">
+							<Link color="brand.700" title="Providers">
 								our providers
 							</Link>
 						</NextLink>
 						,{" "}
 						<NextLink href="/services" passHref>
-							<Link color="brand" title="Services">
+							<Link color="brand.700" title="Services">
 								our full range of services
 							</Link>
 						</NextLink>
 						, and{" "}
 						<NextLink href="/insurance" passHref>
-							<Link color="brand" title="Insurance">
+							<Link color="brand.700" title="Insurance">
 								our accepted insurance plans
 							</Link>
 						</NextLink>

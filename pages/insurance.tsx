@@ -23,7 +23,7 @@ const InsurancePage: NextPage = () => {
 					<Link
 						href="tel:7323883006"
 						title="Contact our billing office"
-						color="brand"
+						color="brand.700"
 						_hover={{ textDecoration: "underline" }}
 						_focus={{}}
 					>

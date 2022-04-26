@@ -1,7 +1,7 @@
 import { Box, Grid, GridItem, Link, Text } from "@chakra-ui/react"
 import { DAYS } from "@constants"
 import { Office } from "@content"
-import { createTransition } from "@utils"
+import { convertTo12H, createTransition } from "@utils"
 
 type OfficeDisplayProps = {
 	office: Office
@@ -30,7 +30,7 @@ const OfficeDisplay: React.FC<OfficeDisplayProps> = ({
 						href={googleMaps}
 						title={`View ${title} office on Google Maps`}
 						transition={createTransition("color")}
-						_hover={{ color: "brand", textDecoration: "underline" }}
+						_hover={{ color: "brand.700", textDecoration: "underline" }}
 						_focus={{}}
 					>
 						{address.map((line) => (
@@ -60,7 +60,7 @@ const OfficeDisplay: React.FC<OfficeDisplayProps> = ({
 						textStyle="paragraph"
 						fontSize={{ base: "sm", md: "md", lg: "lg" }}
 						transition={createTransition("color")}
-						_hover={{ color: "brand", textDecoration: "underline" }}
+						_hover={{ color: "brand.700", textDecoration: "underline" }}
 						_focus={{}}
 					>
 						{phone}
@@ -115,7 +115,8 @@ const OfficeDisplay: React.FC<OfficeDisplayProps> = ({
 										>
 											{dayHours ? (
 												<>
-													{dayHours.open} &ndash; {dayHours.close}
+													{convertTo12H(dayHours.open)} &ndash;{" "}
+													{convertTo12H(dayHours.close)}
 												</>
 											) : (
 												"CLOSED"

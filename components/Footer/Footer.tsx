@@ -46,7 +46,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
 											href={`tel:${phone}`}
 											as="span"
 											transition={createTransition("color")}
-											_hover={{ color: "brand" }}
+											_hover={{ color: "brand.700" }}
 											_focus={{}}
 										>
 											<Text>{phone}</Text>
@@ -81,7 +81,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
 										lineHeight={1}
 										transition={createTransition(["opacity", "color"])}
 										_hover={{
-											color: "brand",
+											color: "brand.700",
 											opacity: 1,
 										}}
 										_focus={{}}
