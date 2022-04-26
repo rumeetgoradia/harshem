@@ -9,7 +9,7 @@ import {
 	VStack,
 } from "@chakra-ui/react"
 import { AppointmentFormStepProps } from "@components/Appointment/AppointmentForm/AppointmentForm"
-import { AppointmentStepFields, SubmitStepFields } from "@content"
+import { SubmitStepFields } from "@content"
 import { Controller, useForm } from "react-hook-form"
 import { BsArrowLeft } from "react-icons/bs"
 
@@ -32,7 +32,7 @@ const SubmitStep: React.FC<AppointmentFormStepProps> = ({
 		},
 	})
 
-	const onSubmit = async (values: AppointmentStepFields) => {
+	const onSubmit = async (values: SubmitStepFields) => {
 		if (isValid) {
 			updateAppointmentFormData(values)
 			// TODO send email

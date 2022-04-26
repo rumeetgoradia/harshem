@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo"
 
 type LayoutProps = {
 	title: string
+	children: React.ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({ title, children }) => {
