@@ -109,7 +109,7 @@ const SubmitStep: React.FC<AppointmentFormStepProps> = ({
 					Back
 				</Button>
 				<Button
-					disabled={!isValid}
+					disabled={!isValid || isSubmitting}
 					isLoading={isSubmitting}
 					loadingText="Submitting"
 					type="submit"
