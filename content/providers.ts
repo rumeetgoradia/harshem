@@ -1,5 +1,6 @@
 import DancelImage from "@images/providers/dancel.png"
 import GoradiaImage from "@images/providers/goradia.jpg"
+import { StaticImageData } from "next/image"
 
 export type Provider = {
 	name: string

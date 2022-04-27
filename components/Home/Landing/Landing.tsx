@@ -24,6 +24,7 @@ const Landing: React.FC<LandingProps> = ({}) => {
 			}}
 		>
 			<Parallax strength={300} className="parallax">
+				{/* @ts-ignore */}
 				<Background>
 					<Box w="full" h="65vh" position="relative" zIndex={1}>
 						<NextImage
