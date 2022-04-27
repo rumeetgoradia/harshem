@@ -37,7 +37,7 @@ const HomePage: NextPage = () => {
 						able to provide effective translation for several commonly spoken
 						languages. We welcome you to explore our website to learn more about{" "}
 						<NextLink href="/providers" passHref>
-							<Link as={NextLink} color="brand.700" title="Providers">
+							<Link color="brand.700" title="Providers">
 								our providers
 							</Link>
 						</NextLink>
