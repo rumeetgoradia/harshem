@@ -13,7 +13,7 @@ export const Button = {
 			transition: createTransition(["opacity", "transform"]),
 			_hover: {
 				opacity: 1,
-				transform: "scale(1.05)",
+				transform: "scale(1.025)",
 				"&[disabled]": {
 					opacity: 0.4,
 					transform: "scale(1)",
@@ -24,7 +24,7 @@ export const Button = {
 				outline: "none",
 				boxShadow: "none",
 				opacity: 1,
-				transform: "scale(1.05)",
+				transform: "scale(1.025)",
 			},
 			_active: {
 				transform: "scale(0.975)",
@@ -44,13 +44,13 @@ export const Button = {
 			]),
 			_hover: {
 				opacity: 1,
-				transform: "scale(1.05)",
+				transform: "scale(1.025)",
 			},
 			_focus: {
 				outline: "none",
 				boxShadow: "none",
 				opacity: 1,
-				transform: "scale(1.05)",
+				transform: "scale(1.025)",
 			},
 			_active: {
 				transform: "scale(0.975)",
