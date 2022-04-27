@@ -1,3 +1,1 @@
-import OfficeDisplay from "./OfficeDisplay"
-
-export { OfficeDisplay }
+export * from "./OfficeDisplay"

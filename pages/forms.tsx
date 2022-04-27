@@ -1,37 +1,38 @@
-import { HeroLayout } from "@/components/Layout"
-import { Content, Header, Hyperlink } from "@/components/Typography"
-import { PHONE } from "@/constants"
-import { Button, Grid, Typography } from "@material-ui/core"
-import Link from "next/link"
+import { Box, Button, Link, Text } from "@chakra-ui/react"
+import { Layout } from "@components/Layout"
+import { NextPage } from "next"
+import NextLink from "next/link"
 
-const FormsPage: React.FC = () => {
+const FormsPage: NextPage = () => {
 	return (
-		<HeroLayout title="Patient Forms">
-			<Grid item xs={12}>
-				<Header>First-Time Registration Form</Header>
-				<Content>
-					<Typography variant="body1">
-						If you are a first-time patient, please fill out the form below and
-						bring it with you for your appointment. If you haven't made an
-						appointment yet, please visit our{" "}
-						<Link href="/appointment" passHref>
-							<Hyperlink>appointments page</Hyperlink>
-						</Link>{" "}
-						or give us a call at{" "}
-						<Hyperlink href={`tel:${PHONE}`}>{PHONE}</Hyperlink>.
-					</Typography>
-					<Button
-						href="/Harshem Patient Registration.pdf"
-						target="_blank"
-						rel="noopener"
-						variant="contained"
-						color="primary"
-					>
-						Registration Form
-					</Button>
-				</Content>
-			</Grid>
-		</HeroLayout>
+		<Layout title="Patient Forms">
+			<Box>
+				<Text textStyle="header">First-Time Registration Form</Text>
+				<Text textStyle="paragraph" mb={3}>
+					If you are a first-time patient, please fill out the form below and
+					bring it with you for your appointment. If you haven&apos;t made an
+					appointment yet, please visit our{" "}
+					<NextLink href="/appointment" passHref>
+						<Link color="brand.700" title="Book Appointment">
+							appointments page
+						</Link>
+					</NextLink>{" "}
+					or give us a call at{" "}
+					<Link href="tel:7323883006" color="brand.700" title="Call Us">
+						(732) 388-3006
+					</Link>
+					.
+				</Text>
+				<Link
+					href="/forms/registration.pdf"
+					isExternal
+					title="Registration Form"
+					_hover={{}}
+				>
+					<Button variant="filled">Registration Form</Button>
+				</Link>
+			</Box>
+		</Layout>
 	)
 }
 

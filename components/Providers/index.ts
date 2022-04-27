@@ -1,3 +1,1 @@
-import ProviderDisplay from "./ProviderDisplay"
-
-export { ProviderDisplay }
+export * from "./ProviderDisplay"

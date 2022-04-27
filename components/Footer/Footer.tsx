@@ -1,116 +1,105 @@
-import { EMAIL, NAV_ITEMS, PHONE, SITE_NAME } from "@/constants"
-import Logo from "@/images/logo.svg"
 import {
 	Box,
 	Container,
+	Flex,
 	Grid,
-	IconButton,
-	Link as MuiLink,
-	Typography,
-} from "@material-ui/core"
-import Link from "next/link"
-import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai"
-import useFooterStyles from "./Footer.styles"
+	Link,
+	Text,
+	VStack,
+} from "@chakra-ui/react"
+import { Logo } from "@components/Logo"
+import { NAV_ITEMS, SITE_NAME } from "@constants"
+import { OFFICES } from "@content"
+import { createTransition } from "@utils"
+import NextLink from "next/link"
 
-const Footer: React.FC = () => {
-	const classes = useFooterStyles()
+type FooterProps = {}
 
+const Footer: React.FC<FooterProps> = ({}) => {
 	return (
-		<Box
-			component="footer"
-			width="100%"
-			bgcolor="primary.dark"
-			color="white"
-			py={4}
-		>
-			<Container maxWidth="lg" className={classes.root}>
-				<Grid container spacing={4}>
-					<Grid item xs={12}>
-						<Box display="flex" className={classes.header}>
-							<Box
-								display="flex"
-								alignItems="center"
-								className={classes.titleContainer}
+		<Flex justify="center" bg="gray.100">
+			<Container as="footer" maxW="container.lg" px={8} pt={8} pb={4}>
+				<VStack spacing={8} justify="flex-start" align="flex-start" w="full">
+					<Flex justify="space-between" w="full">
+						<VStack spacing={4} justify="flex-start" align="flex-start">
+							<Text
+								as="h6"
+								fontSize={{ base: "2xl", sm: "3xl" }}
+								opacity={0.6}
+								fontWeight={500}
 							>
-								<Logo className={classes.logo} />
-								<Typography variant="h5" className={classes.title}>
-									{SITE_NAME}
-								</Typography>
-							</Box>
-							<Box
-								display="flex"
-								justifyContent="center"
-								alignItems="center"
-								className={classes.contactContainer}
-							>
-								<IconButton
-									href={`mailto:${EMAIL}`}
-									className={classes.contactButton}
-								>
-									<AiOutlineMail />
-								</IconButton>
-								<IconButton
-									href={`tel:${PHONE}`}
-									className={classes.contactButton}
-								>
-									<AiOutlinePhone />
-								</IconButton>
-							</Box>
-						</Box>
-					</Grid>
-					<Grid item xs={12}>
-						<Box py={2}>
-							<Grid container spacing={2}>
-								{NAV_ITEMS.map((navItem, navItemIndex) =>
-									navItem.path ? (
-										<Grid
-											item
-											xs={12}
-											sm={6}
-											md={4}
-											lg={3}
-											className={classes.navLinkContainer}
-											key={`footer-nav-${navItemIndex}`}
+								Harshem Family Practice
+							</Text>
+							<Flex gap={{ base: 4, sm: 8 }} w="full">
+								{OFFICES.map(({ address, phone }) => (
+									<Box
+										key={`${address[0]}-footer-office`}
+										fontSize={{ base: "sm", md: "md" }}
+										opacity={0.6}
+									>
+										{address.map((line) => (
+											<Text key={`${address[0]}-footer-office-${line}-line`}>
+												{line}
+											</Text>
+										))}
+										<Link
+											href={`tel:${phone}`}
+											as="span"
+											transition={createTransition("color")}
+											_hover={{ color: "brand.700" }}
+											_focus={{}}
 										>
-											<Link href={navItem.path} passHref>
-												<MuiLink className={classes.navLink}>
-													{navItem.title}
-												</MuiLink>
-											</Link>
-										</Grid>
-									) : (
-										navItem.dropdownItems?.map(
-											(dropdownItem, dropdownItemIndex) => (
-												<Grid
-													item
-													xs={12}
-													sm={6}
-													md={4}
-													lg={3}
-													className={classes.navLinkContainer}
-													key={`footer-nav-${navItemIndex}-dropdown-${dropdownItemIndex}`}
-												>
-													<Link href={dropdownItem.path} passHref>
-														<MuiLink className={classes.navLink}>
-															{dropdownItem.title}
-														</MuiLink>
-													</Link>
-												</Grid>
-											)
-										)
-									)
-								)}
-							</Grid>
-						</Box>
+											<Text>{phone}</Text>
+										</Link>
+									</Box>
+								))}
+							</Flex>
+						</VStack>
+
+						<Logo
+							h="157px"
+							w="auto"
+							fill="black"
+							opacity={0.6}
+							display={{ base: "none", md: "block" }}
+						/>
+					</Flex>
+					<Box as="hr" borderTopColor="gray.300" w="full" />
+					<Grid
+						gap={4}
+						templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+						w="full"
+					>
+						{NAV_ITEMS.map(({ title, path }) => (
+							<Box as="span" key={`${title}-footer-link`}>
+								<NextLink href={path} passHref>
+									<Link
+										title={title}
+										opacity={0.4}
+										textTransform="uppercase"
+										fontSize="sm"
+										lineHeight={1}
+										transition={createTransition(["opacity", "color"])}
+										_hover={{
+											color: "brand.700",
+											opacity: 1,
+										}}
+										_focus={{}}
+									>
+										{title}
+									</Link>
+								</NextLink>
+							</Box>
+						))}
 					</Grid>
-					<Grid item xs={12}>
-						<Typography className={classes.copyright}>
-							{`© ${new Date().getFullYear()} ${SITE_NAME}`}
-						</Typography>
-					</Grid>
-				</Grid>
+					<Text
+						opacity={0.4}
+						fontWeight={300}
+						fontSize="xs"
+					>{`© ${new Date().getFullYear()} ${SITE_NAME}`}</Text>
+				</VStack>
 			</Container>
-		</Box>
+		</Flex>
 	)
 }
 

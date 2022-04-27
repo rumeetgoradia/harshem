@@ -1,205 +1,86 @@
+import { Box } from "@chakra-ui/react"
 import {
-	FormDatePicker,
-	FormRadioGroup,
-	FormSelect,
-	FormTextField,
-} from "@/components/Form"
-import {
-	AppointmentFormInputs,
-	APPOINTMENT_CHOICES,
-	APPOINTMENT_FORM_SCHEMA,
-} from "@/constants"
-import { yupResolver } from "@hookform/resolvers/yup"
-import { Button, FormHelperText, Grid } from "@material-ui/core"
-import axios from "axios"
-import { useEffect, useState } from "react"
-import "react-datepicker/dist/react-datepicker.css"
-import { useForm } from "react-hook-form"
-import useAppointmentFormStyles from "./AppointmentForm.styles"
+	AppointmentFormData,
+	AppointmentStepFields,
+	DateStepFields,
+	PatientStepFields,
+	SubmitStepFields,
+} from "@content"
+import { useState } from "react"
+import { AppointmentStep } from "./AppointmentStep"
+import { DateStep } from "./DateStep"
+import { FinishStep } from "./FinishStep"
+import { PatientStep } from "./PatientStep"
+import { SubmitStep } from "./SubmitStep"
 
-const AppointmentForm: React.FC = () => {
-	const {
-		register,
-		handleSubmit,
-		errors,
-		formState,
-		reset,
-		control,
-	} = useForm<AppointmentFormInputs>({
-		resolver: yupResolver(APPOINTMENT_FORM_SCHEMA),
-		mode: "all",
-	})
-	const { isValid, isSubmitting } = formState
-	const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false)
+type AppointmentFormProps = {}
 
-	useEffect(() => console.log(isSubmitting), [isSubmitting])
+const AppointmentForm: React.FC<AppointmentFormProps> = ({}) => {
+	const [formStep, setFormStep] = useState<number>(0)
 
-	const onSubmit = (data: AppointmentFormInputs) => {
-		axios({
-			method: "POST",
-			url: process.env.NEXT_PUBLIC_APPOINTMENT_FORM_URL,
-			data,
-		})
-			.then(() => {
-				reset({})
-				setIsSubmitSuccessful(true)
-			})
-			.catch(() => {
-				alert(
-					"There was an issue sending your appointment request. Please try again later!"
-				)
-				setIsSubmitSuccessful(false)
-			})
+	const incrementFormStep = () => {
+		setFormStep((prev) => prev + 1)
 	}
 
-	useEffect(() => {
-		if (isSubmitSuccessful) {
-			const timeout = setTimeout(() => {
-				setIsSubmitSuccessful(false)
-				clearTimeout(timeout)
-			}, 30000)
+	const decrementFormStep = () => {
+		setFormStep((prev) => prev - 1)
+	}
+
+	const [appointmentFormData, setAppointmentFormData] =
+		// @ts-ignore
+		useState<AppointmentFormData>({})
+
+	const updateAppointmentFormData = (
+		formStepData:
+			| PatientStepFields
+			| AppointmentStepFields
+			| DateStepFields
+			| SubmitStepFields
+	) => {
+		setAppointmentFormData((prev) => ({ ...prev, ...formStepData }))
+	}
+
+	const displayFormStep = () => {
+		const appointmentFormStepProps: AppointmentFormStepProps = {
+			appointmentFormData,
+			updateAppointmentFormData,
+			incrementFormStep,
+			decrementFormStep,
 		}
-	}, [isSubmitSuccessful])
 
-	const classes = useAppointmentFormStyles()
+		switch (formStep) {
+			case 0: {
+				return <PatientStep {...appointmentFormStepProps} />
+			}
+			case 1: {
+				return <AppointmentStep {...appointmentFormStepProps} />
+			}
+			case 2: {
+				return <DateStep {...appointmentFormStepProps} />
+			}
+			case 3: {
+				return <SubmitStep {...appointmentFormStepProps} />
+			}
+			case 4: {
+				return <FinishStep />
+			}
+		}
+	}
 
-	return (
-		<form onSubmit={handleSubmit(onSubmit)} name="appointment" method="POST">
-			<input type="hidden" name="form-name" value="appointment" />
-			<Grid container spacing={3}>
-				<Grid item xs={12} sm={4}>
-					<FormTextField
-						inputRef={register}
-						name="firstName"
-						label="First Name"
-						required
-						schemaError={errors.firstName}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={4}>
-					<FormTextField
-						inputRef={register}
-						name="lastName"
-						label="Last Name"
-						required
-						schemaError={errors.lastName}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={4}>
-					<FormDatePicker
-						control={control}
-						label="Date of Birth"
-						name="dateOfBirth"
-						required
-						schemaError={errors.dateOfBirth}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormTextField
-						inputRef={register}
-						name="email"
-						label="Email Address"
-						schemaError={errors.email}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormTextField
-						inputRef={register}
-						name="phone"
-						label="Phone Number"
-						required
-						schemaError={errors.phone}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormRadioGroup
-						control={control}
-						name="newPatient"
-						label="Are you a new patient?"
-						required
-						options={[
-							{ label: "Yes", value: "yes" },
-							{ label: "No", value: "no" },
-						]}
-						schemaError={errors.newPatient}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormSelect
-						control={control}
-						label="Appointment Type"
-						name="appointmentType"
-						required
-						schemaError={errors.appointmentType}
-						choices={APPOINTMENT_CHOICES.appointmentType}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormSelect
-						control={control}
-						label="Office Preference"
-						name="officePreference"
-						schemaError={errors.officePreference}
-						choices={APPOINTMENT_CHOICES.office}
-					/>
-				</Grid>
-				<Grid item xs={12} sm={6}>
-					<FormSelect
-						control={control}
-						label="Provider Preference"
-						name="providerPreference"
-						schemaError={errors.providerPreference}
-						choices={APPOINTMENT_CHOICES.provider}
-					/>
-				</Grid>
-				<Grid item xs={12} md={4}>
-					<FormDatePicker
-						control={control}
-						required
-						label="First Date Preference"
-						name="firstDatePreference"
-						schemaError={errors.firstDatePreference}
-						showTime
-					/>
-				</Grid>
-				<Grid item xs={12} md={4}>
-					<FormDatePicker
-						control={control}
-						label="Second Date Preference"
-						name="secondDatePreference"
-						schemaError={errors.secondDatePreference}
-						showTime
-					/>
-				</Grid>
-				<Grid item xs={12} md={4}>
-					<FormDatePicker
-						control={control}
-						label="Third Date Preference"
-						name="thirdDatePreference"
-						schemaError={errors.thirdDatePreference}
-						showTime
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<Button
-						variant="outlined"
-						disabled={!isValid || isSubmitting}
-						color="primary"
-						type="submit"
-						fullWidth
-					>
-						{isSubmitting ? "Submitting..." : "Submit"}
-					</Button>
-					{isSubmitSuccessful && (
-						<FormHelperText className={classes.success}>
-							Appointment request sent successfully! We will reach out to you
-							soon.
-						</FormHelperText>
-					)}
-				</Grid>
-			</Grid>
-		</form>
-	)
+	return <Box w="full">{displayFormStep()}</Box>
 }
 
 export default AppointmentForm
+
+export type AppointmentFormStepProps = {
+	appointmentFormData: AppointmentFormData
+	updateAppointmentFormData: (
+		formStepData:
+			| PatientStepFields
+			| AppointmentStepFields
+			| DateStepFields
+			| SubmitStepFields
+	) => void
+	incrementFormStep: () => void
+	decrementFormStep: () => void
+}

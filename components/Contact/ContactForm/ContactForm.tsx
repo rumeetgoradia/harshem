@@ -1,123 +1,146 @@
-import { FormTextField } from "@/components/Form"
-import { ContactFormInputs, CONTACT_FORM_SCHEMA } from "@/constants"
-import { yupResolver } from "@hookform/resolvers/yup"
-import { Button, FormHelperText, Grid } from "@material-ui/core"
-import axios from "axios"
-import { useEffect, useState } from "react"
+import {
+	Button,
+	FormControl,
+	FormErrorMessage,
+	FormLabel,
+	Grid,
+	GridItem,
+	Input,
+	Textarea,
+	useToast,
+	UseToastOptions,
+} from "@chakra-ui/react"
+import { PRIMARY_OFFICE } from "@content"
+import { ContactData } from "content/contact"
 import { useForm } from "react-hook-form"
-import useContactFormStyles from "./ContactForm.styles"
+import redaxios from "redaxios"
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC = ({}) => {
 	const {
 		register,
 		handleSubmit,
-		errors,
-		formState,
+		formState: { errors, isSubmitting },
 		reset,
-	} = useForm<ContactFormInputs>({
-		resolver: yupResolver(CONTACT_FORM_SCHEMA),
-		mode: "all",
-	})
-	const { isValid, isSubmitting } = formState
-	const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false)
+	} = useForm<ContactData>({ mode: "all" })
 
-	const onSubmit = (data: ContactFormInputs) => {
-		axios({
-			method: "POST",
-			url: process.env.NEXT_PUBLIC_CONTACT_FORM_URL,
-			data,
-		})
-			.then(() => {
-				reset({})
-				setIsSubmitSuccessful(true)
-			})
-			.catch(() => {
-				alert(
-					"There was an issue sending your message. Please try again later!"
-				)
-				setIsSubmitSuccessful(false)
-			})
+	const toast = useToast()
+	const toastOptions: UseToastOptions = {
+		duration: 5000,
+		isClosable: true,
+		position: "top-right",
 	}
 
-	useEffect(() => {
-		if (isSubmitSuccessful) {
-			const timeout = setTimeout(() => {
-				setIsSubmitSuccessful(false)
-				clearTimeout(timeout)
-			}, 30000)
-		}
-	}, [isSubmitSuccessful])
-
-	const classes = useContactFormStyles()
+	const onSubmit = async (values: ContactData) => {
+		await redaxios
+			.post("/api/contact", values)
+			.then((res) => {
+				if (res.status === 200) {
+					toast({
+						title: "Message sent successfully.",
+						description:
+							"Thanks for your message! We will get back to you shortly.",
+						status: "success",
+						onCloseComplete: reset,
+						...toastOptions,
+					})
+				} else {
+					throw new Error()
+				}
+			})
+			.catch(() =>
+				toast({
+					title: "Something went wrong.",
+					description: `There was an issue processing your message. Please try again later, or give us a call instead at ${PRIMARY_OFFICE.phone}.`,
+					status: "error",
+					...toastOptions,
+				})
+			)
+	}
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} name="contact" method="POST">
-			<input type="hidden" name="form-name" value="contact" />
-			<Grid container spacing={2}>
-				<Grid item xs={12} md={6}>
-					<FormTextField
-						inputRef={register}
-						name="firstName"
-						label="First Name"
-						required
-						schemaError={errors.firstName}
+		<Grid
+			as="form"
+			w="full"
+			noValidate
+			onSubmit={handleSubmit(onSubmit)}
+			gap={6}
+			templateColumns="repeat(2, 1fr)"
+		>
+			<Input type="hidden" name="url" />
+			<GridItem colSpan={{ base: 2 }}>
+				<FormControl id="name" isInvalid={!!errors.name} isRequired>
+					<FormLabel>Name</FormLabel>
+					<Input
+						variant="outline"
+						type="text"
+						{...register("name", {
+							required: "Please enter your name.",
+						})}
 					/>
-				</Grid>
-				<Grid item xs={12} md={6}>
-					<FormTextField
-						inputRef={register}
-						name="lastName"
-						label="Last Name"
-						required
-						schemaError={errors.lastName}
+					<FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+				</FormControl>
+			</GridItem>
+			<GridItem colSpan={{ base: 2, sm: 1 }}>
+				<FormControl id="phone" isInvalid={!!errors.phone} isRequired>
+					<FormLabel>Phone Number</FormLabel>
+					<Input
+						variant="outline"
+						{...register("phone", {
+							required: "Please enter your primary phone number.",
+							pattern: {
+								value:
+									/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+								message: "Please enter a valid phone number.",
+							},
+						})}
 					/>
-				</Grid>
-				<Grid item xs={12} md={6}>
-					<FormTextField
-						inputRef={register}
-						name="email"
-						label="Email Address"
-						schemaError={errors.email}
+					<FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
+				</FormControl>
+			</GridItem>
+			<GridItem colSpan={{ base: 2, sm: 1 }}>
+				<FormControl id="email" isInvalid={!!errors.email} isRequired>
+					<FormLabel>Email</FormLabel>
+					<Input
+						variant="outline"
+						type="email"
+						{...register("email", {
+							required: "Please enter your primary email.",
+							pattern: {
+								value:
+									/(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/,
+								message: "Please enter a valid email address.",
+							},
+						})}
 					/>
-				</Grid>
-				<Grid item xs={12} md={6}>
-					<FormTextField
-						inputRef={register}
-						name="phone"
-						label="Phone Number"
-						required
-						schemaError={errors.phone}
+					<FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+				</FormControl>
+			</GridItem>
+			<GridItem colSpan={2}>
+				<FormControl id="message" isInvalid={!!errors.message} isRequired>
+					<FormLabel>Message</FormLabel>
+					<Textarea
+						variant="outline"
+						rows={10}
+						{...register("message", {
+							required: "Please enter your message.",
+						})}
 					/>
-				</Grid>
-				<Grid item xs={12}>
-					<FormTextField
-						inputRef={register}
-						name="message"
-						label="Message"
-						required
-						schemaError={errors.message}
-						multiline
-						rows={6}
-					/>
-				</Grid>
-				<Grid item xs={12}>
-					<Button
-						variant="outlined"
-						color="primary"
-						disabled={!isValid || isSubmitting}
-						type="submit"
-						fullWidth
-					>
-						{isSubmitting ? "Submitting..." : "Submit"}
-					</Button>
-					{isSubmitSuccessful && (
-						<FormHelperText className={classes.success}>
-							Message sent successfully! We will reach out to you soon.
-						</FormHelperText>
-					)}
-				</Grid>
-			</Grid>
-		</form>
+					<FormErrorMessage>{errors.message?.message}</FormErrorMessage>
+				</FormControl>
+			</GridItem>
+			<GridItem colSpan={2}>
+				<Button
+					type="submit"
+					variant="filled"
+					w="full"
+					disabled={isSubmitting}
+					isLoading={isSubmitting}
+					loadingText="Sending..."
+				>
+					Send Message
+				</Button>
+			</GridItem>
+		</Grid>
 	)
 }
 

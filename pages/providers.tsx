@@ -1,52 +1,26 @@
-import { HeroLayout } from "@/components/Layout"
-import { ProviderDisplay } from "@/components/Providers"
-import { PROVIDERS } from "@/content"
-import { Grid } from "@material-ui/core"
-import { getBase64 } from "@plaiceholder/base64"
-import { getImage } from "@plaiceholder/next"
-import { GetStaticProps } from "next"
+import { Grid } from "@chakra-ui/react"
+import { Layout } from "@components/Layout"
+import { ProviderDisplay } from "@components/Providers"
+import { PROVIDERS } from "@content"
+import { NextPage } from "next"
 
-interface ProvidersPageProps {
-	imgBase64s: string[]
-	imgSrcs: string[]
-}
-
-const ProvidersPage: React.FC<ProvidersPageProps> = ({
-	imgBase64s,
-	imgSrcs,
-}) => {
+const ProvidersPage: NextPage = () => {
 	return (
-		<HeroLayout title="Providers">
-			{PROVIDERS.map((provider, index) => (
-				<Grid item xs={12} key={`provider-${index}`}>
+		<Layout title="Providers">
+			<Grid
+				templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+				gap={{ base: 6, md: 10 }}
+				w="full"
+			>
+				{PROVIDERS.map((provider) => (
 					<ProviderDisplay
 						provider={provider}
-						imgBase64={imgBase64s[index]}
-						imgSrc={imgSrcs[index]}
+						key={`${provider.name}-provider-display`}
 					/>
-				</Grid>
-			))}
-		</HeroLayout>
+				))}
+			</Grid>
+		</Layout>
 	)
 }
 
 export default ProvidersPage
-
-export const getStaticProps: GetStaticProps = async () => {
-	const imgSrcs = []
-	const imgBase64s = []
-
-	for (const provider of PROVIDERS) {
-		const imgSrc = `/images/providers/${provider.imageId}`
-		imgSrcs.push(imgSrc)
-		const img = await getImage(imgSrc)
-		imgBase64s.push(await getBase64(img))
-	}
-
-	return {
-		props: {
-			imgBase64s,
-			imgSrcs,
-		},
-	}
-}

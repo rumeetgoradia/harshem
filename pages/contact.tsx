@@ -1,16 +1,12 @@
-import { ContactForm } from "@/components/Contact"
-import { HeroLayout } from "@/components/Layout"
-import { Header } from "@/components/Typography"
-import { Grid } from "@material-ui/core"
+import { ContactForm } from "@components/Contact"
+import { Layout } from "@components/Layout"
+import { NextPage } from "next"
 
-const ContactPage: React.FC = () => {
+const ContactPage: NextPage = () => {
 	return (
-		<HeroLayout title="Contact Us">
-			<Grid item xs={12}>
-				<Header>Send Us a Message</Header>
-				<ContactForm />
-			</Grid>
-		</HeroLayout>
+		<Layout title="Contact Us">
+			<ContactForm />
+		</Layout>
 	)
 }
 

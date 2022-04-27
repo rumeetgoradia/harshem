@@ -1,4 +1,39 @@
-export const APPOINTMENT_REQUEST_INTRO = [
-	"If you are having a medical emergency, please call 911 immediately. Do NOT use this form if you are having a medical emergency.",
-	"If you need an urgent, same-day, or next-day appointment, please call the appropriate office location. Use this form for non-urgent appointments only.",
+export const APPOINTMENT_TYPES = [
+	"Sick Visit",
+	"Follow Up",
+	"Annual/Wellness",
+	"Pre-Op Clearance",
+	"Women's Health Issues",
+	"Other",
 ]
+
+export type PatientStepFields = {
+	firstName: string
+	lastName: string
+	dateOfBirth: string
+	phone: string
+	email: string
+}
+
+export type AppointmentStepFields = {
+	officePreference: string
+	providerPreference: string
+	appointmentType: string
+}
+
+export type DateStepFields = {
+	firstDatePreference: string
+	firstTimePreference: string
+	secondDatePreference?: string
+	secondTimePreference?: string
+}
+
+export type SubmitStepFields = {
+	newPatient: boolean
+	agreeToTerms: boolean
+}
+
+export type AppointmentFormData = PatientStepFields &
+	AppointmentStepFields &
+	DateStepFields &
+	SubmitStepFields

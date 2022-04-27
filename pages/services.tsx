@@ -1,27 +1,57 @@
-import { HeroLayout } from "@/components/Layout"
-import MasonryGrid, { MasonryGridItem } from "@/components/MasonryGrid"
-import { Header } from "@/components/Typography"
-import { Grid } from "@material-ui/core"
-import { SERVICES } from "content/services"
+import { Box, Text } from "@chakra-ui/react"
+import { Layout } from "@components/Layout"
+import { SERVICES } from "@content"
+import { NextPage } from "next"
+import Masonry from "react-masonry-css"
 
-const ServicesPage: React.FC = () => {
+const ServicesPage: NextPage = () => {
 	return (
-		<HeroLayout title="Services">
-			{SERVICES.map((serviceGroup, serviceGroupIndex) => (
-				<Grid item xs={12} key={`service-group-${serviceGroupIndex}`}>
-					<Header>{serviceGroup.title}</Header>
-					<MasonryGrid>
-						{serviceGroup.services.map((service, serviceIndex) => (
-							<MasonryGridItem
-								title={service.title}
-								note={service.note}
-								key={`service-group-${serviceGroupIndex}-service-${serviceIndex}`}
-							/>
+		<Layout title="Services">
+			{Object.entries(SERVICES).map(([key, services]) => (
+				<Box
+					w="full"
+					sx={{
+						"& .services-grid": {
+							display: "flex",
+							ml: -3,
+							w: "auto",
+							"& .services-grid-col": {
+								pl: 3,
+								bgClip: "padding-box",
+								"& .services-grid-col-item": {
+									mb: 3,
+								},
+							},
+						},
+					}}
+					key={`${key}-service-group`}
+				>
+					<Text as="h3" textStyle="header">
+						{key}
+					</Text>
+					<Masonry
+						className="services-grid"
+						columnClassName="services-grid-col"
+						breakpointCols={{ default: 3, 768: 2 }}
+					>
+						{services.map((service) => (
+							<Box
+								w="full"
+								className="services-grid-col-item"
+								key={`${key}-service-group-${service}`}
+							>
+								<Text
+									textStyle="paragraph"
+									fontSize={{ base: "sm", sm: "md", md: "lg" }}
+								>
+									{service}
+								</Text>
+							</Box>
 						))}
-					</MasonryGrid>
-				</Grid>
+					</Masonry>
+				</Box>
 			))}
-		</HeroLayout>
+		</Layout>
 	)
 }
 

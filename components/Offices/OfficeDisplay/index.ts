@@ -1,3 +1,1 @@
-import OfficeDisplay from './OfficeDisplay'
-
-export default OfficeDisplay
+export { default as OfficeDisplay } from './OfficeDisplay'

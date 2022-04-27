@@ -1,3 +1,1 @@
-import ProviderDisplay from './ProviderDisplay'
-
-export default ProviderDisplay
+export { default as ProviderDisplay } from './ProviderDisplay'

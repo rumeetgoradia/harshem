@@ -1,67 +1,56 @@
-import { Header } from "@/components/Typography"
-import { Provider } from "@/content"
-import { Grid, Typography } from "@material-ui/core"
-import Image from "next/image"
-import useProviderDisplayStyles from "./ProviderDisplay.styles"
+import { Box, Flex, Text } from "@chakra-ui/react"
+import { Provider } from "@content"
+import NextImage from "next/image"
 
-interface ProviderDisplayProps {
+type ProviderDisplayProps = {
 	provider: Provider
-	imgSrc: string
-	imgBase64: string
 }
 
 const ProviderDisplay: React.FC<ProviderDisplayProps> = ({
-	provider,
-	imgSrc,
-	imgBase64,
+	provider: { name, bio, image },
 }) => {
-	const classes = useProviderDisplayStyles()
-
 	return (
-		<Grid container spacing={2}>
-			<Grid item xs={12} className={classes.xsImgGridItem}>
-				<div className={classes.imageContainer}>
-					<img
-						aria-hidden="true"
-						alt={provider.name}
-						src={imgBase64}
-						className={classes.blurredImage}
-					/>
-					<Image
-						src={imgSrc}
+		<Box mb={-4}>
+			<Text as="h2" textStyle="header">
+				{name}
+			</Text>
+			<Flex
+				justify="center"
+				w="full"
+				mb={4}
+				display={{ base: "flex", sm: "none", md: "flex", lg: "none" }}
+			>
+				<Box h="300px" w={{ base: "full", sm: "200px" }} position="relative">
+					<NextImage
+						src={image}
 						layout="fill"
-						alt={provider.name}
-						title={provider.name}
-						quality={30}
 						objectFit="cover"
 						objectPosition="center center"
+						placeholder="blur"
 					/>
-				</div>
-			</Grid>
-			<Grid item xs={12} md={8}>
-				<Header>{provider.name}</Header>
-				<Typography variant="body1">{provider.bio}</Typography>
-			</Grid>
-			<Grid item xs={12} md={4} className={classes.mdImgGridItem}>
-				<div className={classes.imageContainer}>
-					<img
-						aria-hidden="true"
-						alt={provider.name}
-						src={imgBase64}
-						className={classes.blurredImage}
-					/>
-					<Image
-						src={imgSrc}
+				</Box>
+			</Flex>
+			<Text textStyle="paragraph" mb={4}>
+				<Box
+					float="left"
+					h="300px"
+					w="200px"
+					mr={4}
+					mb={4}
+					position="relative"
+					display={{ base: "none", sm: "block", md: "none", lg: "block" }}
+				>
+					<NextImage
+						src={image}
 						layout="fill"
-						alt={provider.name}
-						title={provider.name}
-						quality={30}
 						objectFit="cover"
 						objectPosition="center center"
+						placeholder="blur"
 					/>
-				</div>
-			</Grid>
-		</Grid>
+				</Box>
+				{bio}
+			</Text>
+		</Box>
 	)
 }
 

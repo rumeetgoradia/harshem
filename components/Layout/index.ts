@@ -1,4 +1,1 @@
-import ContentContainer from "./ContentContainer"
-import HeroLayout from "./HeroLayout"
-
-export { ContentContainer, HeroLayout }
+export { default as Layout } from './Layout'

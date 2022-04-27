@@ -1,72 +1,68 @@
-import Logo from "@/images/logo.svg"
-import {
-	AppBar,
-	Drawer,
-	Theme,
-	Toolbar,
-	useMediaQuery,
-} from "@material-ui/core"
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import DrawerToggle from "./DrawerToggle"
-import useNavbarStyles from "./Navbar.styles"
-import NavMenu from "./NavMenu"
+import { Box, Container, Flex, HStack, Link, Text } from "@chakra-ui/react"
+import { Logo } from "@components/Logo"
+import { OFFICES } from "@content"
+import { useRouter } from "next/router"
+import { DesktopMenu } from "./DesktopMenu"
+import { MobileMenu } from "./MobileMenu"
 
 const Navbar: React.FC = () => {
-	const [isScrolled, setIsScrolled] = useState<boolean>(false)
-	const [isOpen, setIsOpen] = useState<boolean>(false)
-
-	const handleScroll = () => {
-		setIsScrolled(window.pageYOffset > 75)
-	}
-
-	const toggleDrawer = () => {
-		setIsOpen(!isOpen)
-	}
-
-	const closeDrawer = () => {
-		setIsOpen(false)
-	}
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll)
-		handleScroll()
-		return () => {
-			window.removeEventListener("scroll", handleScroll)
-		}
-	}, [])
-
-	const classes = useNavbarStyles({ isScrolled })
-	const isMediumScreen = useMediaQuery((theme: Theme) =>
-		theme.breakpoints.up("md")
-	)
+	const router = useRouter()
 
 	return (
-		<AppBar
-			position="fixed"
-			elevation={isMediumScreen ? (isScrolled ? 8 : 0) : isOpen ? 0 : 8}
-			className={classes.root}
-		>
-			<Toolbar className={classes.toolbar}>
-				<Link href="/">
-					<Logo onClick={closeDrawer} className={classes.logo} />
-				</Link>
-				<DrawerToggle isOpen={isOpen} toggleDrawer={toggleDrawer} />
-				{isMediumScreen ? (
-					<NavMenu isScrolled={isScrolled} closeDrawer={closeDrawer} />
-				) : (
-					<Drawer
-						open={isOpen}
-						onClose={closeDrawer}
-						anchor="top"
-						elevation={8}
-						classes={{ paper: classes.drawer }}
-					>
-						<NavMenu closeDrawer={closeDrawer} />
-					</Drawer>
-				)}
-			</Toolbar>
-		</AppBar>
+		<>
+			<Box
+				pt={{ md: 4, lg: 8 }}
+				bg="brand.700"
+				display={{ base: "none", md: "flex" }}
+			>
+				<Container maxW="container.lg" color="white" px={8}>
+					<Flex w="full" justify="space-between" align="center">
+						<Flex align="center">
+							<Flex
+								align="center"
+								justify="center"
+								w={{ md: "40px", lg: "50px" }}
+								h={{ md: "40px", lg: "50px" }}
+								p={1}
+								borderRadius="md"
+								bg="white"
+								mr={4}
+							>
+								<Logo h="full" w="auto" fill="brand.700" />
+							</Flex>
+							<Text
+								as="h6"
+								fontWeight="medium"
+								fontSize={{ md: "3xl", lg: "4xl" }}
+								lineHeight={1}
+							>
+								Harshem Family Practice
+							</Text>
+						</Flex>
+						<HStack spacing={4}>
+							{OFFICES.map(({ title, phone }) => (
+								<Box key={`${title}-office-phone`}>
+									<Text textAlign="right" fontSize="sm">
+										{title}
+									</Text>
+									<Link href={`tel:${phone}`} fontWeight="bold">
+										{phone}
+									</Link>
+								</Box>
+							))}
+						</HStack>
+					</Flex>
+				</Container>
+			</Box>
+			<Box w="full" zIndex="banner" top={0} bg="brand.700" position="sticky">
+				<Container maxW="container.lg" color="white" px={8}>
+					<Flex as="header" justify="center" align="center">
+						<DesktopMenu activePath={router.pathname} />
+						<MobileMenu activePath={router.pathname} />
+					</Flex>
+				</Container>
+			</Box>
+		</>
 	)
 }
 

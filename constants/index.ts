@@ -1,5 +1,3 @@
-export * from "./appointment"
-export * from "./contact"
-export * from "./interfaces"
+export * from "./days"
 export * from "./navigation"
 export * from "./seo"

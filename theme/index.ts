@@ -1,69 +1,69 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core"
+import { extendTheme } from "@chakra-ui/react"
+import { StyleFunctionProps } from "@chakra-ui/theme-tools"
+import { components } from "./components/index"
 
-const theme = responsiveFontSizes(
-	createMuiTheme({
-		palette: {
-			primary: {
-				100: "#b1ffda",
-				200: "#82fdc3",
-				300: "#52fcad",
-				400: "#2afb95",
-				500: "#19e27b",
-				600: "#0db060",
-				700: "#027d44",
-				800: "#004b28",
-				900: "#001b0b",
-				main: "#027d44",
-				light: "#0db060",
-				dark: "#004b28",
+const fonts = [
+	"Spline Sans",
+	"ui-sans-serif",
+	"system-ui",
+	"-apple-system",
+	"BlinkMacSystemFont",
+	"Segoe UI",
+	"Roboto",
+	"Helvetica Neue",
+	"Arial",
+	"Noto Sans",
+	"sans-serif",
+	"Apple Color Emoji",
+	"Segoe UI Emoji",
+	"Segoe UI Symbol",
+	"Noto Color Emoji",
+].join(",")
+
+const theme = extendTheme({
+	styles: {
+		global: (props: StyleFunctionProps) => ({
+			"html, body": {
+				scrollBehavior: "smooth",
+				fontFamily: fonts,
+				bg: "white",
+				color: "black",
 			},
-			common: {
-				white: "#EDF2F7",
-			},
-			background: {
-				default: "#EDF2F7",
-			},
+		}),
+	},
+	colors: {
+		brand: {
+			50: "#027d44",
+			100: "#027d44",
+			200: "#027d44",
+			300: "#027d44",
+			400: "#027d44",
+			500: "#027d44",
+			600: "#027d44",
+			700: "#027d44",
+			800: "#027d44",
+			900: "#027d44",
 		},
-		typography: {
-			fontSize: 16,
-			fontFamily: [
-				'"Inter"',
-				"-apple-system",
-				"BlinkMacSystemFont",
-				'"Segoe UI"',
-				"Roboto",
-				'"Helvetica Neue"',
-				"Arial",
-				"sans-serif",
-				'"Apple Color Emoji"',
-				'"Segoe UI Emoji"',
-				'"Segoe UI Symbol"',
-			].join(","),
+	},
+	fonts: {
+		heading: fonts,
+		body: fonts,
+	},
+	textStyles: {
+		header: {
+			fontSize: "3xl",
+			fontWeight: 400,
+			mb: 4,
 		},
-		zIndex: {
-			modal: 9998,
-			appBar: 9999,
+		paragraph: {
+			fontSize: "lg",
+			fontWeight: 300,
+			lineHeight: 1.6,
 		},
-		props: {
-			MuiButton: {
-				disableRipple: true,
-			},
-		},
-		overrides: {
-			MuiButton: {
-				contained: {
-					transition:
-						"transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-					"&:hover": {
-						transform: "scale(1.05)",
-					},
-					"&:active": {
-						transform: "scale(0.95)",
-					},
-				},
-			},
-		},
-	})
-)
+	},
+	components,
+})
 
 export default theme
+
+export { default as Fonts } from "./fonts"

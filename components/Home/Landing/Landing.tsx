@@ -1,70 +1,74 @@
-import { SITE_NAME } from "@/constants"
-import { SUBTITLE } from "@/content"
-import { Box, Container, Typography } from "@material-ui/core"
-import Image from "next/image"
+import { Box, Container, Flex, Text, useTheme } from "@chakra-ui/react"
+import { transparentize } from "@chakra-ui/theme-tools"
+import LandingImage from "@images/home/landing.jpg"
+import NextImage from "next/image"
 import { Background, Parallax } from "react-parallax"
-import useLandingStyles from "./Landing.styles"
 
-interface LandingProps {
-	imgBase64: string
-	imgSrc: string
-}
+type LandingProps = {}
 
-const Landing: React.FC<LandingProps> = ({ imgBase64, imgSrc }) => {
-	const classes = useLandingStyles()
+const Landing: React.FC<LandingProps> = ({}) => {
+	const theme = useTheme()
 
 	return (
-		<Parallax
-			strength={200}
-			className={classes.root}
-			contentClassName={classes.content}
+		<Box
+			sx={{
+				".parallax": {
+					bg: "black",
+					h: "45vh",
+					w: "full",
+					"& .react-parallax-background-children": {
+						w: "full",
+						h: "full",
+					},
+				},
+			}}
 		>
-			<Background>
-				<img
-					aria-hidden="true"
-					alt={SITE_NAME}
-					src={imgBase64}
-					className={classes.blurredImage}
-				/>
-				<Image
-					src={imgSrc}
-					alt={SITE_NAME}
-					title={SITE_NAME}
-					layout="fill"
-					objectFit="cover"
-					objectPosition="center center"
-					priority
-				/>
-			</Background>
-			<Container maxWidth="lg">
-				<Box
-					component="main"
-					display="flex"
-					flexDirection="column"
-					justifyContent="center"
-					width="100%"
-					height="100%"
-				>
-					<Typography variant="h1" color="primary" className={classes.title}>
-						{SITE_NAME}
-					</Typography>
-					<Typography variant="h2" className={classes.subtitle}>
-						{SUBTITLE}
-					</Typography>
-					{/* <div>
-						{OFFICES.map((office, index) => (
-							<Typography
-								variant="h2"
-								className={classes.subtitle}
-								key={`landing-subtitle-office-${index}`}
-							>
-								<span>{office.title}:</span> {office.phone}
-							</Typography>
-						))}
-					</div> */}
-				</Box>
-			</Container>
-		</Parallax>
+			<Parallax strength={300} className="parallax">
+				{/* @ts-ignore */}
+				<Background>
+					<Box w="full" h="65vh" position="relative" zIndex={1}>
+						<NextImage
+							src={LandingImage}
+							layout="fill"
+							objectPosition="center center"
+							objectFit="cover"
+							placeholder="blur"
+						/>
+					</Box>
+					<Box
+						w="full"
+						h="85vh"
+						position="absolute"
+						top={0}
+						zIndex={2}
+						bg={transparentize("black", 0.55)(theme)}
+					/>
+				</Background>
+				<Container maxW="container.lg" px={8} h="45vh">
+					<Flex flexDirection="column" justify="center" w="full" h="full">
+						<Text
+							as="h1"
+							fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
+							color="brand.700"
+							fontWeight={700}
+							lineHeight={1}
+							mb={2}
+						>
+							Harshem Family Practice
+						</Text>
+						<Text
+							as="h2"
+							fontSize={{ base: "2xl", md: "4xl" }}
+							color="white"
+							fontWeight={500}
+							mb={8}
+						>
+							Dr. Rita U. Goradia, MDPC
+						</Text>
+					</Flex>
+				</Container>
+			</Parallax>
+		</Box>
 	)
 }
 

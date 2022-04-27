@@ -1,104 +1,136 @@
-import { Header } from "@/components/Typography"
-import { Office } from "@/content"
-import { Box, Button, Grid, Typography } from "@material-ui/core"
-import { Fragment } from "react"
-import { AiFillPhone } from "react-icons/ai"
-import { FaFax } from "react-icons/fa"
-import { RiMapPinFill } from "react-icons/ri"
-import useOfficeDisplayStyles from "./OfficeDisplay.styles"
+import { Box, Grid, GridItem, Link, Text } from "@chakra-ui/react"
+import { DAYS } from "@constants"
+import { Office } from "@content"
+import { convertTo12H, createTransition } from "@utils"
 
-interface OfficeDisplayProps {
+type OfficeDisplayProps = {
 	office: Office
 }
 
-const OfficeDisplay: React.FC<OfficeDisplayProps> = ({ office }) => {
-	const classes = useOfficeDisplayStyles()
-
+const OfficeDisplay: React.FC<OfficeDisplayProps> = ({
+	office: { title, address, phone, fax, hours, googleMaps },
+}) => {
 	return (
-		<>
-			<Header>{office.title}</Header>
-			<Grid container spacing={3} justify="space-between">
-				<Grid item xs={12} sm={5} md={4}>
-					{office.address.map((addressLine, index) => (
-						<Grid container spacing={1} alignItems="center">
-							<Grid item xs={1}>
-								{index === 0 && <RiMapPinFill />}
-							</Grid>
-							<Grid item xs={11}>
-								<Typography
-									variant="body1"
-									key={`${office.title}-address-line-${index}`}
-								>
-									{addressLine}
-								</Typography>
-							</Grid>
-						</Grid>
-					))}
-					<Box width="75%" mt={1}>
-						<Button
-							variant="outlined"
-							color="primary"
-							href={office.googleMaps}
-							fullWidth
-						>
-							Google Maps
-						</Button>
-					</Box>
-				</Grid>
-				<Grid item xs={12} sm={5} md={4}>
-					<Grid container spacing={1} alignItems="center">
-						<Grid item xs={1}>
-							<AiFillPhone />
-						</Grid>
-						<Grid item xs={11}>
-							<Typography variant="body1">{office.phone}</Typography>
-						</Grid>
-					</Grid>
-					<Grid container spacing={1} alignItems="center">
-						<Grid item xs={1}>
-							<FaFax />
-						</Grid>
-						<Grid item xs={11}>
-							<Typography variant="body1">{office.fax}</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
-				<Grid
-					item
-					xs={12}
-					md={4}
-					component={Box}
-					display="flex"
-					justifyContent="center"
-				>
-					<Grid
-						container
-						spacing={1}
-						component={Box}
-						width="100%"
-						maxWidth={300}
+		<Box>
+			<Text as="h2" textStyle="header">
+				{title}
+			</Text>
+			<Grid gap={4} templateColumns="repeat(5, 1fr)">
+				<GridItem colSpan={1}>
+					<Text
+						textStyle="paragraph"
+						fontSize={{ base: "sm", md: "md", lg: "lg" }}
+						fontWeight={400}
 					>
-						<Grid item xs={12} className={classes.hoursTitle}>
-							Hours
-						</Grid>
-						{Object.entries(office.hours).map(([day, hours], index) => (
-							<Fragment key={`office-${office.title}-hours-${index}`}>
-								<Grid item xs={3} className={classes.day}>
-									<Box width="100%" px={1.5}>
-										{day}
-									</Box>
-								</Grid>
-								<Grid item xs={9}>
-									<Box width="100%" px={1.5}>
-										{hours}
-									</Box>
-								</Grid>
-							</Fragment>
+						Address
+					</Text>
+				</GridItem>
+				<GridItem colSpan={4}>
+					<Link
+						href={googleMaps}
+						isExternal
+						title={`View ${title} office on Google Maps`}
+						transition={createTransition("color")}
+						_hover={{ color: "brand.700", textDecoration: "underline" }}
+						_focus={{}}
+					>
+						{address.map((line) => (
+							<Text
+								textStyle="paragraph"
+								fontSize={{ base: "sm", md: "md", lg: "lg" }}
+								key={`${title}-office-display-${line}-address-line`}
+							>
+								{line}
+							</Text>
 						))}
+					</Link>
+				</GridItem>
+				<GridItem colSpan={1}>
+					<Text
+						textStyle="paragraph"
+						fontSize={{ base: "sm", md: "md", lg: "lg" }}
+						fontWeight={400}
+					>
+						Phone
+					</Text>
+				</GridItem>
+				<GridItem colSpan={4}>
+					<Link
+						href={`tel:${phone}`}
+						title={`Call ${title} office`}
+						textStyle="paragraph"
+						fontSize={{ base: "sm", md: "md", lg: "lg" }}
+						transition={createTransition("color")}
+						_hover={{ color: "brand.700", textDecoration: "underline" }}
+						_focus={{}}
+					>
+						{phone}
+					</Link>
+				</GridItem>
+				<GridItem colSpan={1}>
+					<Text
+						textStyle="paragraph"
+						fontSize={{ base: "sm", md: "md", lg: "lg" }}
+						fontWeight={400}
+					>
+						Fax
+					</Text>
+				</GridItem>
+				<GridItem colSpan={4}>
+					<Text
+						textStyle="paragraph"
+						fontSize={{ base: "sm", md: "md", lg: "lg" }}
+					>
+						{fax}
+					</Text>
+				</GridItem>
+				<GridItem colSpan={1}>
+					<Text
+						textStyle="paragraph"
+						fontSize={{ base: "sm", md: "md", lg: "lg" }}
+						fontWeight={400}
+					>
+						Hours
+					</Text>
+				</GridItem>
+				<GridItem colSpan={4}>
+					<Grid templateColumns="repeat(3, 1fr)" w="full">
+						{DAYS.map((day) => {
+							const dayHours = hours[day]
+							return (
+								<>
+									<GridItem colSpan={1}>
+										<Text
+											textStyle="paragraph"
+											fontSize={{ base: "sm", lg: "lg" }}
+											mr={4}
+										>
+											{day}
+										</Text>
+									</GridItem>
+									<GridItem colSpan={2}>
+										<Text
+											textStyle="paragraph"
+											fontSize={{ base: "sm", md: "md", lg: "lg" }}
+											fontStyle="italic"
+										>
+											{dayHours ? (
+												<>
+													{convertTo12H(dayHours.open)} &ndash;{" "}
+													{convertTo12H(dayHours.close)}
+												</>
+											) : (
+												"CLOSED"
+											)}
+										</Text>
+									</GridItem>
+								</>
+							)
+						})}
 					</Grid>
-				</Grid>
+				</GridItem>
 			</Grid>
-		</>
+		</Box>
 	)
 }
 

@@ -1,4 +1,3 @@
-import { ServerStyleSheets } from "@material-ui/core/styles"
 import Document, { Head, Html, Main, NextScript } from "next/document"
 import React from "react"
 
@@ -9,12 +8,11 @@ class MyDocument extends Document {
 				<Head>
 					<link
 						rel="preload"
-						href="/fonts/inter.woff2"
+						href="/fonts/SplineSans.woff2"
 						as="font"
 						type="font/woff2"
 						crossOrigin="anonymous"
 					/>
-					<link rel="stylesheet" href="/fonts/fonts.css" />
 					<link
 						rel="apple-touch-icon"
 						sizes="180x180"
@@ -36,18 +34,15 @@ class MyDocument extends Document {
 					<link
 						rel="mask-icon"
 						href="/favicons/safari-pinned-tab.svg"
-						color="#34926e"
+						color="#027d44"
 					/>
 					<link rel="shortcut icon" href="/favicons/favicon.ico" />
-					<meta name="apple-mobile-web-app-title" content="Rumeet Goradia" />
-					<meta name="application-name" content="Rumeet Goradia" />
-					<meta name="msapplication-TileColor" content="#00a300" />
+					<meta name="msapplication-TileColor" content="#027d44" />
 					<meta
 						name="msapplication-config"
 						content="/favicons/browserconfig.xml"
 					/>
-					<meta name="theme-color" content="#111820" />
-					<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+					<meta name="theme-color" content="#ffffff" />
 				</Head>
 				<body>
 					<Main />
@@ -55,27 +50,6 @@ class MyDocument extends Document {
 				</body>
 			</Html>
 		)
-	}
-}
-
-MyDocument.getInitialProps = async (ctx) => {
-	const sheets = new ServerStyleSheets()
-	const originalRenderPage = ctx.renderPage
-
-	ctx.renderPage = () =>
-		originalRenderPage({
-			enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
-		})
-
-	const initialProps = await Document.getInitialProps(ctx)
-
-	return {
-		...initialProps,
-		// Styles fragment is rendered after the app and page rendering finish.
-		styles: [
-			...React.Children.toArray(initialProps.styles),
-			sheets.getStyleElement(),
-		],
 	}
 }
 
