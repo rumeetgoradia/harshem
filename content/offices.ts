@@ -80,6 +80,6 @@ export const OFFICES: Office[] = [PRIMARY_OFFICE].concat([
 			Saturday: null,
 			Sunday: null,
 		},
-		googleMaps: "https://goo.gl/maps/5WqDkB2r7yqtj1nZ7",
+		googleMaps: "https://goo.gl/maps/pdFEzvXGiSboVDPk8",
 	},
 ])
