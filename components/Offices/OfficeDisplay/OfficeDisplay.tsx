@@ -28,6 +28,7 @@ const OfficeDisplay: React.FC<OfficeDisplayProps> = ({
 				<GridItem colSpan={4}>
 					<Link
 						href={googleMaps}
+						isExternal
 						title={`View ${title} office on Google Maps`}
 						transition={createTransition("color")}
 						_hover={{ color: "brand.700", textDecoration: "underline" }}
