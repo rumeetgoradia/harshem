@@ -57,9 +57,24 @@ const DateStep: React.FC<AppointmentFormStepProps> = ({
 	const [firstTimeLimits, setFirstTimeLimits] = useState<OpenCloseHours>()
 	const [secondTimeLimits, setSecondTimeLimits] = useState<OpenCloseHours>()
 
-	const [watchFirstDatePreference, watchSecondDatePreference] = watch(
-		["firstDatePreference", "secondDatePreference"],
-		{ firstDatePreference, secondDatePreference }
+	const [
+		watchFirstDatePreference,
+		watchFirstTimePreference,
+		watchSecondDatePreference,
+		watchSecondTimePreference,
+	] = watch(
+		[
+			"firstDatePreference",
+			"firstTimePreference",
+			"secondDatePreference",
+			"secondTimePreference",
+		],
+		{
+			firstDatePreference,
+			firstTimePreference,
+			secondDatePreference,
+			secondTimePreference,
+		}
 	)
 
 	const getOpenCloseHours = (datePreference?: string): OpenCloseHours => {
@@ -321,7 +336,11 @@ const DateStep: React.FC<AppointmentFormStepProps> = ({
 					Back
 				</Button>
 				<Button
-					disabled={!isValid}
+					disabled={
+						!isValid ||
+						!watchFirstTimePreference ||
+						!!(watchSecondDatePreference && !watchSecondTimePreference)
+					}
 					type="submit"
 					variant="filled"
 					rightIcon={<BsArrowRight />}

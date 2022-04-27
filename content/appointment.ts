@@ -4,6 +4,7 @@ export const APPOINTMENT_TYPES = [
 	"Annual/Wellness",
 	"Pre-Op Clearance",
 	"Women's Health Issues",
+	"Other",
 ]
 
 export type PatientStepFields = {

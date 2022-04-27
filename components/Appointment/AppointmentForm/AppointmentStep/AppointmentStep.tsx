@@ -102,6 +102,7 @@ const AppointmentStep: React.FC<AppointmentFormStepProps> = ({
 									{name}
 								</option>
 							))}
+							<option value="No Preference">No Preference</option>
 						</Select>
 						<FormErrorMessage>
 							{errors.providerPreference?.message}

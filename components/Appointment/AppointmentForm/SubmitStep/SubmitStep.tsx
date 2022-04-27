@@ -6,12 +6,15 @@ import {
 	FormControl,
 	FormErrorMessage,
 	Text,
+	useToast,
+	UseToastOptions,
 	VStack,
 } from "@chakra-ui/react"
 import { AppointmentFormStepProps } from "@components/Appointment/AppointmentForm/AppointmentForm"
-import { SubmitStepFields } from "@content"
+import { PRIMARY_OFFICE, SubmitStepFields } from "@content"
 import { Controller, useForm } from "react-hook-form"
 import { BsArrowLeft } from "react-icons/bs"
+import redaxios from "redaxios"
 
 const SubmitStep: React.FC<AppointmentFormStepProps> = ({
 	appointmentFormData,
@@ -32,11 +35,33 @@ const SubmitStep: React.FC<AppointmentFormStepProps> = ({
 		},
 	})
 
+	const toast = useToast()
+	const toastOptions: UseToastOptions = {
+		duration: 5000,
+		isClosable: true,
+		position: "top-right",
+	}
+
 	const onSubmit = async (values: SubmitStepFields) => {
 		if (isValid) {
 			updateAppointmentFormData(values)
-			// TODO send email
-			incrementFormStep()
+			await redaxios
+				.post("/api/appointment", appointmentFormData)
+				.then((res) => {
+					if (res.status === 200) {
+						incrementFormStep()
+					} else {
+						throw new Error()
+					}
+				})
+				.catch(() =>
+					toast({
+						title: "Something went wrong.",
+						description: `There was an issue processing your appointment request. Please try again later, or give us a call instead at ${PRIMARY_OFFICE.phone}.`,
+						status: "error",
+						...toastOptions,
+					})
+				)
 		}
 	}
 	const goToPrevFormStep = (values: SubmitStepFields) => {

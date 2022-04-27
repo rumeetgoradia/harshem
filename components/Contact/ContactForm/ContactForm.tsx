@@ -7,9 +7,13 @@ import {
 	GridItem,
 	Input,
 	Textarea,
+	useToast,
+	UseToastOptions,
 } from "@chakra-ui/react"
+import { PRIMARY_OFFICE } from "@content"
 import { ContactData } from "content/contact"
 import { useForm } from "react-hook-form"
+import redaxios from "redaxios"
 
 const ContactForm: React.FC = ({}) => {
 	const {
@@ -17,37 +21,40 @@ const ContactForm: React.FC = ({}) => {
 		handleSubmit,
 		formState: { errors, isSubmitting },
 		reset,
-	} = useForm<ContactData>()
+	} = useForm<ContactData>({ mode: "all" })
+
+	const toast = useToast()
+	const toastOptions: UseToastOptions = {
+		duration: 5000,
+		isClosable: true,
+		position: "top-right",
+	}
 
 	const onSubmit = async (values: ContactData) => {
-		// TODO send email
-		// console.log(values)
-		// const res = { status: 200 }
-		// await redaxios
-		// 	.post("/api/contact", values)
-		// 	.then((res) => {
-		// 		if (res.status === 200) {
-		// 			toast({
-		// 				title: "Message sent successfully.",
-		// 				description:
-		// 					"Thanks for your message! I'll get back to you shortly.",
-		// 				status: "success",
-		// 				onCloseComplete: reset,
-		// 				...toastOptions,
-		// 			})
-		// 		} else {
-		// 			throw new Error()
-		// 		}
-		// 	})
-		// 	.catch(() =>
-		// 		toast({
-		// 			title: "Something went wrong.",
-		// 			description:
-		// 				"There was an issue processing your message. Please try again later!",
-		// 			status: "error",
-		// 			...toastOptions,
-		// 		})
-		// 	)
+		await redaxios
+			.post("/api/contact", values)
+			.then((res) => {
+				if (res.status === 200) {
+					toast({
+						title: "Message sent successfully.",
+						description:
+							"Thanks for your message! We will get back to you shortly.",
+						status: "success",
+						onCloseComplete: reset,
+						...toastOptions,
+					})
+				} else {
+					throw new Error()
+				}
+			})
+			.catch(() =>
+				toast({
+					title: "Something went wrong.",
+					description: `There was an issue processing your message. Please try again later, or give us a call instead at ${PRIMARY_OFFICE.phone}.`,
+					status: "error",
+					...toastOptions,
+				})
+			)
 	}
 
 	return (
