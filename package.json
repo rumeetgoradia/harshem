@@ -21,7 +21,7 @@
     "next-seo": "^5.4.0",
     "next-sitemap": "^2.5.20",
     "nodemailer": "^6.7.3",
-    "npm-check-updates": "^12.5.9",
+    "npm-check-updates": "^16.7.4",
     "plaiceholder": "^2.3.0",
     "preact": "^10.7.1",
     "react": "18.1.0",
