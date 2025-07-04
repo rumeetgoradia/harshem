@@ -1,1 +1,0 @@
-export { AppointmentForm } from "./AppointmentForm"
