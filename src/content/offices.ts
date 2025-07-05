@@ -1,4 +1,4 @@
-import { Day, DAYS } from "~/constants/days";
+import { type Day, DAYS } from "~/constants/days";
 
 export type Office = {
 	title: string
