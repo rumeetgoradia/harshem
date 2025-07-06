@@ -1,57 +1,38 @@
 import "~/styles/globals.css";
 
-import { Inter } from "next/font/google";
+import { type Metadata } from "next";
+import localFont from "next/font/local";
 
-import { Navbar } from "~/app/_components/navbar/navbar";
-import { Footer } from "~/app/_components/footer";
 import { TRPCReactProvider } from "~/trpc/react";
-import { cn } from "~/lib/utils";
+import { Navbar } from "~/components/layout/navbar";
+import { Footer } from "~/components/layout/footer";
+import { AppProviders } from "~/components/providers";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Harshem Family Practice",
   description: "Harshem Family Practice, an outpatient medical practice for all primary care, geriatric, adolescent, and women's health needs. Located in Rahway and Elizabeth, NJ.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-  openGraph: {
-    title: "Harshem Family Practice",
-    description: "Harshem Family Practice, an outpatient medical practice for all primary care, geriatric, adolescent, and women's health needs. Located in Rahway and Elizabeth, NJ.",
-    url: "https://www.harshemfamilypractice.com",
-    siteName: "Harshem Family Practice",
-    images: [
-      {
-        url: "/images/seo/card.png",
-        width: 1200,
-        height: 628,
-        alt: "Harshem Family Practice",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Harshem Family Practice",
-    description: "Harshem Family Practice, an outpatient medical practice for all primary care, geriatric, adolescent, and women's health needs. Located in Rahway and Elizabeth, NJ.",
-    images: ["/images/seo/card.png"],
-  },
 };
+
+const splineSans = localFont({
+  src: "../../public/fonts/SplineSans.woff2",
+  variable: "--font-spline-sans",
+});
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>
+    <html lang="en" className={`${splineSans.variable}`}>
+      <body>
         <TRPCReactProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <AppProviders>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </AppProviders>
         </TRPCReactProvider>
       </body>
     </html>
