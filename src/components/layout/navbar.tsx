@@ -26,7 +26,7 @@ export function Navbar() {
         <div className="container max-w-[64rem] flex items-center justify-between px-8 pt-4 text-white lg:pt-8">
           <Link href="/" className="flex items-center gap-4 group">
             <div className="flex items-center justify-center p-1 bg-white rounded-md size-10 lg:size-12">
-              <Logo className="w-auto h-full text-primary" />
+              <Logo className="w-auto h-full fill-primary" />
             </div>
             <h1 className="text-3xl font-medium leading-none lg:text-4xl">
               Harshem Family Practice
@@ -73,7 +73,7 @@ export function Navbar() {
           {/* ====== Mobile Header & Menu Trigger ====== */}
           <div className="flex items-center justify-between w-full py-4 md:hidden">
             <Link href="/" className="flex items-center" aria-label="Go to homepage">
-              <Logo className="w-auto h-10 text-white transition-transform group-hover:scale-110 active:scale-95" />
+              <Logo className="w-auto h-10 fill-white transition-transform group-hover:scale-110 active:scale-95" />
             </Link>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>

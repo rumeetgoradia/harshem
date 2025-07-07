@@ -1,53 +1,4 @@
-// ============================================================================
-// Core Data Types
-// ============================================================================
-
-/**
- * A constant array of day names.
- * Using `as const` allows us to derive a strict string literal type `Day`.
- */
-export const DAYS = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-] as const;
-
-/**
- * A type representing a day of the week, derived from the DAYS array.
- * e.g., "Monday" | "Tuesday" | ...
- */
-export type Day = (typeof DAYS)[number];
-
-// ============================================================================
-// Site Navigation
-// ============================================================================
-
-export type NavItem = {
-  title: string;
-  path: string;
-  /** Use for special styling, e.g., a primary button in the nav. */
-  isCta?: boolean;
-};
-
-export const NAV_ITEMS: readonly NavItem[] = [
-  { title: "Home", path: "/" },
-  { title: "Providers", path: "/providers" },
-  { title: "Offices", path: "/offices" },
-  { title: "Services", path: "/services" },
-  { title: "Insurance", path: "/insurance" },
-  { title: "Patient Forms", path: "/forms" },
-  { title: "Contact Us", path: "/contact" },
-  {
-    title: "Book Appointment",
-    path: "/appointment",
-    isCta: true,
-  },
-] as const;
-
+import { type Day } from "./days";
 
 export type Office = {
   title: string;
@@ -98,5 +49,3 @@ export const OFFICES: readonly Office[] = [
 ] as const;
 
 export const PRIMARY_OFFICE = OFFICES[0]!;
-
-export const SITE_NAME = "Harshem Family Practice";

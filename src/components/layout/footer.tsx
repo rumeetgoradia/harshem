@@ -32,12 +32,12 @@ export function Footer() {
                     </div>
                     {/* --- Logo (Desktop only) --- */}
                     <div className="hidden shrink-0 md:block">
-                        <Logo className="h-[157px] w-auto text-foreground/60" />
+                        <Logo className="h-[157px] w-auto fill-foreground/60" />
                     </div>
                 </div>
 
                 {/* ====== Separator ====== */}
-                <hr className="w-full border-border/50" />
+                <hr className="w-full border-border" />
 
                 {/* ====== Navigation Links ====== */}
                 <nav
