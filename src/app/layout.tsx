@@ -7,6 +7,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { Navbar } from "~/components/layout/navbar";
 import { Footer } from "~/components/layout/footer";
 import { AppProviders } from "~/components/providers";
+import { Toaster } from "~/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Harshem Family Practice",
@@ -24,17 +25,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${splineSans.variable}`}>
-      <body>
+    <body>
         <TRPCReactProvider>
           <AppProviders>
-            <div className="flex min-h-screen flex-col">
+            <div className="flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
               <Navbar />
               <main className="flex-grow">{children}</main>
               <Footer />
             </div>
+            <Toaster richColors />
           </AppProviders>
         </TRPCReactProvider>
-      </body>
-    </html>
+      </body></html>
   );
 }
