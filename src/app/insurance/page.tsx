@@ -11,7 +11,7 @@ export default function InsurancePage() {
           <h2 className="text-2xl font-semibold">Billing</h2>
           <p className="text-muted-foreground">
             We participate with most insurance plans. However, it is the
-            patient's responsibility to understand whether his/her insurance
+            patient&apos;s responsibility to understand whether his/her insurance
             has limits on the doctors you can see, or the services you can
             receive. If you provide complete and accurate information about your
             health insurance, we will submit claims to your insurance carrier and
