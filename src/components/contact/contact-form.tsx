@@ -19,6 +19,7 @@ import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 
 export function ContactForm() {
+//   TODO fix color of toast
   const { mutate, isPending } = api.contact.send.useMutation({
     onSuccess: () => {
       toast.success("Message sent successfully!", {

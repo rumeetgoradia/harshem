@@ -38,7 +38,7 @@ export const contactRouter = createTRPCRouter({
       };
 
       try {
-        await transporter.sendMail(mailOptions);
+        // await transporter.sendMail(mailOptions);
         return { success: true };
       } catch (error) {
         console.error("Failed to send email:", error);
