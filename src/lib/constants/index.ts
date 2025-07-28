@@ -5,3 +5,4 @@ export * from "./providers";
 export * from "./site";
 export * from "./services"
 export * from "./insurance"
+export * from "./appointment"

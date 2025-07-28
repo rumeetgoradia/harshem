@@ -2,7 +2,6 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
 import { type ContactFormData, contactFormSchema } from "~/lib/validators/contact";
 import { api } from "~/trpc/react";
 
@@ -17,18 +16,22 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
+import { showToast } from "~/components/ui/toast";
 
 export function ContactForm() {
-//   TODO fix color of toast
   const { mutate, isPending } = api.contact.send.useMutation({
     onSuccess: () => {
-      toast.success("Message sent successfully!", {
+      showToast({
+        variant: "success",
+        title: "Message sent successfully!",
         description: "Thanks for your message! We will get back to you shortly.",
       });
-      form.reset();
+      // form.reset();
     },
     onError: (error) => {
-      toast.error("Something went wrong.", {
+      showToast({
+        variant: "error",
+        title: "Something went wrong.",
         description:
           error.message ?? "Please try again later or give us a call.",
       });

@@ -18,3 +18,18 @@ export function formatTime(timeString: string): string {
 
   return `${twelveHour}:${minutes.toString().padStart(2, "0")} ${ampm}`;
 }
+
+export function formatDate(dateString: string): string {
+  if (!dateString) return "";
+  
+  // Adding `\T00:00:00` ensures the date is parsed in the local timezone,
+  // preventing off-by-one day errors that can occur with UTC parsing.
+  const date = new Date(`${dateString}T00:00:00`);
+  if (isNaN(date.getTime())) return "";
+
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}

@@ -33,7 +33,7 @@ export default function RootLayout({
               <main className="flex-grow">{children}</main>
               <Footer />
             </div>
-            <Toaster richColors />
+            <Toaster richColors theme="light"/>
           </AppProviders>
         </TRPCReactProvider>
       </body></html>
