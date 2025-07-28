@@ -1,5 +1,4 @@
 import { type SVGProps } from "react";
-import { Mountain } from "lucide-react";
 
 export function Logo(props: SVGProps<SVGSVGElement>) {
   return <svg viewBox="0 0 1640 2277" {...props}>

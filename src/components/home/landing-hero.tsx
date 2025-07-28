@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ParallaxBanner } from "react-scroll-parallax";
 import LandingImage from "public/images/home/landing.jpg";
 
