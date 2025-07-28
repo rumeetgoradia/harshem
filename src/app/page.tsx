@@ -16,7 +16,7 @@ export default function HomePage() {
           <div className="text-lg space-y-4 text-muted-foreground">
             <p>
               Harshem Family Practice is an outpatient medical practice for all
-              primary care, geriatric, adolescent, and a majority of women's
+              primary care, geriatric, adolescent, and a majority of women&apos;s
               health needs. We have been serving patients in Central and Northern
               New Jersey since 2000 with the goal of providing high-quality modern
               medical care to maintain and improve overall patient health. We
