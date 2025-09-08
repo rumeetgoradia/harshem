@@ -21,11 +21,11 @@ export const OFFICES: readonly Office[] = [
     fax: "(732) 388-9878",
     hours: {
       Monday: { open: "09:00", close: "14:00" },
-      Tuesday: { open: "15:00", close: "19:00" },
+      Tuesday: { open: "15:00", close: "18:30" },
       Wednesday: { open: "09:00", close: "14:00" },
       Thursday: { open: "09:00", close: "14:00" },
-      Friday: { open: "15:00", close: "19:00" },
-      Saturday: { open: "08:30", close: "13:00" },
+      Friday: { open: "09:00", close: "14:00" },
+      Saturday: { open: "09:00", close: "13:00" },
       Sunday: null,
     },
     googleMapsUrl: "https://goo.gl/maps/5WqDkB2r7yqtj1nZ7",
@@ -37,7 +37,7 @@ export const OFFICES: readonly Office[] = [
     fax: "(908) 469-1501",
     hours: {
       Monday: { open: "10:00", close: "14:00" },
-      Tuesday: { open: "11:00", close: "15:00" },
+      Tuesday: { open: "09:00", close: "14:00" },
       Wednesday: { open: "10:00", close: "14:00" },
       Thursday: { open: "10:00", close: "14:00" },
       Friday: { open: "10:00", close: "14:00" },

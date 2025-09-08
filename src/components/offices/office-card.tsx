@@ -13,7 +13,7 @@ export function OfficeCard({ office }: OfficeCardProps) {
 
       <dl className="grid grid-cols-[max-content_1fr] items-start gap-x-4 gap-y-3 text-sm md:text-base">
         {/* Address */}
-        <dt className="flex items-center gap-2 text-muted-foreground">
+        <dt className="text-muted-foreground flex items-center gap-2">
           <MapPin className="size-4" />
           <span>Address</span>
         </dt>
@@ -22,7 +22,7 @@ export function OfficeCard({ office }: OfficeCardProps) {
             href={office.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:text-primary hover:underline"
+            className="hover:text-primary transition-colors hover:underline"
           >
             {office.address.map((line) => (
               <span key={line} className="block">
@@ -33,28 +33,28 @@ export function OfficeCard({ office }: OfficeCardProps) {
         </dd>
 
         {/* Phone */}
-        <dt className="flex items-center gap-2 text-muted-foreground">
+        <dt className="text-muted-foreground flex items-center gap-2">
           <Phone className="size-4" />
           <span>Phone</span>
         </dt>
         <dd>
           <a
             href={`tel:${office.phone}`}
-            className="transition-colors hover:text-primary hover:underline"
+            className="hover:text-primary transition-colors hover:underline"
           >
             {office.phone}
           </a>
         </dd>
 
         {/* Fax */}
-        <dt className="flex items-center gap-2 text-muted-foreground">
+        <dt className="text-muted-foreground flex items-center gap-2">
           <Printer className="size-4" />
           <span>Fax</span>
         </dt>
         <dd>{office.fax}</dd>
 
         {/* Hours */}
-        <dt className="flex items-center gap-2 text-muted-foreground">
+        <dt className="text-muted-foreground flex items-center gap-2">
           <Clock className="size-4" />
           <span>Hours</span>
         </dt>
@@ -63,14 +63,20 @@ export function OfficeCard({ office }: OfficeCardProps) {
             {DAYS.map((day) => {
               const dayHours = office.hours[day];
               return (
-               <div key={day} className={cn("grid grid-cols-[1fr_auto] gap-x-4 py-1 px-2", !dayHours && 'bg-gray-100')}>
+                <div
+                  key={day}
+                  className={cn(
+                    "grid grid-cols-[1fr_auto] gap-x-4 px-2 py-1",
+                    !dayHours && "bg-gray-100",
+                  )}
+                >
                   <span>{day}</span>
                   {dayHours ? (
-                    <span className="font-mono text-foreground/80">
+                    <span className="text-foreground/80">
                       {formatTime(dayHours.open)} – {formatTime(dayHours.close)}
                     </span>
                   ) : (
-                    <span className="pt-1 font-mono text-xs text-muted-foreground">
+                    <span className="text-muted-foreground pt-0.5 text-xs tracking-wider">
                       CLOSED
                     </span>
                   )}
